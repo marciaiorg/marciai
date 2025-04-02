@@ -1,0 +1,41 @@
+"Type","Label"
+role,content marketer
+role,data analyst
+role,programmer
+role,researcher
+role,scriptwriter
+role,SEO specialist
+role,social media manager
+role,translator
+role,web developer
+role,writer
+task,analyze website content and provide SEO recommendations
+task,conduct sentiment analysis on customer reviews
+task,create a content calendar for social media platforms
+task,create high-converting ad copy for Facebook
+task,develop a customized website
+task,"generate catchy titles, meta descriptions, and tags for YouTube videos"
+task,generate keywords for SEO optimization
+task,rewrite articles to be 100% unique and human-like
+task,translate text from one language to another
+task,"write a unique, SEO optimized article"
+constraint,adhere to ethical guidelines and avoid misleading information
+constraint,adhere to SEO best practices and guidelines
+constraint,base analyses on provided datasets
+constraint,content must be 100% unique and pass plagiarism checks
+constraint,ensure clarity and coherence in generated content
+constraint,ensure outputs are in accessible and user-friendly formats
+constraint,follow brand guidelines and tone of voice
+constraint,generate content based on established knowledge up to the last training cut-off
+constraint,provide accurate and reliable information in research tasks
+constraint,provide outputs in specified formats
+context,academic research and writing
+context,content marketing and SEO strategy
+context,data analysis and insights for business decision-making
+context,e-commerce product descriptions
+context,fiction and creative writing projects
+context,market research and competitive analysis
+context,multilingual translation and localization
+context,personal branding and professional development
+context,social media advertising campaigns
+context,website development and optimization

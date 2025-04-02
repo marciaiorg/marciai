@@ -1,0 +1,17 @@
+{
+   "permissionsButton": {
+      "message": "Clique aqui para acessar o ChatGPT.com com todos os recursos do MARCI"
+   },
+   "permissionsDenied": {
+      "message": "Para garantir que você possa continuar usando o MARCI sem interrupções, precisamos que você habilite o MARCI no novo domínio do ChatGPT. Basta clicar no botão abaixo e conceder as permissões quando solicitado.\n\nVocê deve clicar no botão \"Permitir\"."
+   },
+   "permissionsGranted": {
+      "message": "Obrigado por ser um membro valioso da comunidade MARCI!"
+   },
+   "permissionsMainText": {
+      "message": "Para continuar aproveitando todas as funcionalidades do MARCI sem interrupções, habilite-o no novo domínio de ChatGPT.com."
+   },
+   "permissionsTitle": {
+      "message": "MARCI para ChatGPT"
+   }
+}

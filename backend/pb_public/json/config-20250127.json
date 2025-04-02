@@ -1,0 +1,1337 @@
+{
+  "Features": {
+    "Export": {
+      "Config": {
+        "CitationsPattern": "[\\uE203\\uE204\\uE206]|(?:\\uE200(?:\\uE202|[^\\uE200-\\uE2FF])*?turn\\d+\\w*\\d*(?:\\uE202|[^\\uE200-\\uE2FF])*?\\uE201)|:::[a-zA-Z0-9_]+\\s*\u3010\\{[\\s\\S]*?\\}\u3011|\\n:::\\n|\\uE200tlwm(?:\\uE202[^\\uE200-\\uE2FF]+)+\\uE201",
+        "CanvasRecipients": [
+          "canmore.create_textdoc"
+        ],
+        "DataAnalysisContentTypes": [
+          "code",
+          "execution_output"
+        ],
+        "ChainOfThoughtAuthorNames": [
+          "a8km123"
+        ],
+        "ContentTypeText": "text",
+        "ContentTypeVideo": "video",
+        "ContentTypeWebpageExtended": "webpage_extended",
+        "ContentTypeHidden": "hidden",
+        "ContentTypeImageInline": "image_inline",
+        "RecipientResearchKickoffTool": "research_kickoff_tool.start_research_task"
+      }
+    },
+    "Watermark": {
+      "Enabled": true,
+      "Config": {
+        "Selectors": {
+          "MARCI__conversation__response": ".flex.flex-1.text-base.mx-auto.gap-4.md\\:max-w-3xl .flex.flex-grow.flex-col.max-w-full:has(.markdown.prose.w-full.break-words.dark\\:prose-invert):not(:has(div[data-message-author-role=\"user\"])), section[data-testid=\"screen-thread\"] div[slot=\"content\"]:has(article) article:not(:has(div[data-message-author-role=\"user\"])) div.agent-turn .flex.flex-grow.flex-col.max-w-full:has(.markdown.prose.w-full.break-words.dark\\:prose-invert) div.text-message",
+          "sm:MARCI__conversation__response": ".w-full.text-token-text-primary:has(div.agent-turn)"
+        }
+      }
+    },
+    "LiveCrawling": {
+      "Enabled": true,
+      "Config": {
+        "APIEndpointURL": "https://corsproxy.io/?url=",
+        "MaxCharacters": 14000,
+        "MaxWords": 2000,
+        "CrawledTextPrompt": "The text is enclosed between \"<CRAWLEDTEXT_[GUID]>\" and \"</CRAWLEDTEXT_[GUID]>\". Make sure to also follow the instructions given below, if provided, after \"</CRAWLEDTEXT_[GUID]>\".\n\n<CRAWLEDTEXT_[GUID]>[CRAWLEDTEXT]</CRAWLEDTEXT_[GUID]>",
+        "CrawledSourcePrompt": "The source code is enclosed between \"<CRAWLEDSOURCE_[GUID]>\" and \"</CRAWLEDSOURCE_[GUID]>\". Make sure to also follow the instructions given below, if provided, after \"</CRAWLEDSOURCE_[GUID]>\".\n\n<CRAWLEDSOURCE_[GUID]>\n[CRAWLEDSOURCE]\n</CRAWLEDSOURCE_[GUID]>"
+      }
+    },
+    "PromptTemplates": {
+      "Enabled": true,
+      "Config": {
+        "EndpointConversation": "https:\/\/(chat\\.openai\\.com|chatgpt\\.com)\/backend-(api|anon|alt)\/(conversation|complete)$",
+        "EndpointMessageFeedback": "https:\/\/(chat\\.openai\\.com|chatgpt\\.com)\/backend-(api|anon|alt)\/conversation\/message_feedback$",
+        "EndpointConversationChatMessages": "https:\/\/chatgpt\\.com/backend-(api|anon|alt)/conversation\/([^/]+)$",
+        "FeedbackTextField": "text",
+        "FeedbackRatingField": "rating",
+        "FeedbackThumbsDown": "thumbsDown",
+        "FeedbackThumbsUp": "thumbsUp",
+        "GizmoCodePattern": "/g/(g-(?!p-)\\w+)",
+        "GizmoMagicCreatePattern": "https:\/\/(chat\\.openai\\.com|chatgpt\\.com)\/gpts\/editor",
+        "UnselectPromptOnURLChange": true,
+        "EnablePromptSendQuota": true,
+        "EnableConversationMessagesModification": true,
+        "EnableTextDecoderMessagesFilter": true,
+        "EnableDuplicateStylesheetMonitor": true,
+        "EnableExportChatV2": true
+      }
+    },
+    "Referrals": {
+      "Title": "<span style=\"white-space: nowrap;\">Invite a Friend & Earn!</span>",
+      "NoOffer": "We currently don't offer a bonus for inviting friends.",
+      "MaxRedemptions": "You have invited the maximum number of friends. Thank you so much!",
+      "NewFeatureBadge": "<span style=\"font-size:0.75rem; line-height:1rem; font-weight:500; border-radius:0.25rem; padding-top:0.125rem; padding-bottom:0.125rem; padding-left:0.375rem; padding-right:0.375rem; background-color:rgb(253 224 71); color:rgb(113 63 18);\">NEW</span>"
+    },
+    "PromptPanel": {
+      "Enabled": true,
+      "Config": {
+        "PlaceholderText": "Press / to search MARCI prompts ...",
+        "TriggerKey": "/",
+        "EnableModelsConfig": true,
+        "ModelsConfigEndpoint": "/backend-api/models?history_and_training_disabled=false"
+      }
+    },
+    "UserLicenseWarning": {
+      "Enabled": true,
+      "DismissedTimeout": 82800000
+    }
+  },
+  "EndpointGizmos": "https:\/\/(chat\\.openai\\.com|chatgpt\\.com)\/(gpts|tasks)",
+  "PatternOperatorERID": "^user-",
+  "NewPromptDefaultText": "Please write in [TARGETLANGUAGE]\n[PROMPT]",
+  "Selectors": {
+    "FirstPrompt": "div.group\\/conversation-turn div.flex.max-w-full:has(div.text-message), .flex.items-end.overflow-x-auto.whitespace-normal, .flex.w-full.flex-col.gap-1.empty\\:hidden.items-end.rtl\\:items-start, button.group\\/snorlax-control-tile",
+    "FirstPromptButtons": "div.\\[\\.group\\\\\\/conversation-turn\\:hover_\\&\\]\\:block:has(button) span, div.text-message div.\\[\\.group\\\\\\/conversation-turn\\:hover\\_\\&\\]\\:flex:has(button) span:has(> button), div.absolute > div:has(button) > span:has(button):not(:has(button[data-testid=\"send-button\"]))",
+    "ChatLogContainer": "main div[role=\"presentation\"] .flex.flex-col.text-sm, section[data-testid=\"screen-thread\"] div[slot=\"content\"]:has(article) ol",
+    "ConversationResponse": ".flex.flex-1.text-base.mx-auto.gap-4.md\\:max-w-3xl:not(:has(div[data-message-author-role=\"user\"])) .markdown.prose.w-full.break-words.dark\\:prose-invert, .w-full.text-token-text-primary:has(div.agent-turn), div[data-message-author-role=\"assistant\"], div[role=\"presentation\"] div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4",
+    "ModelSelectorContainer": ".flex.flex-col.md\\:py-6.px-2.py-2.top-0.w-full.sticky",
+    "ShareButton": "#deprecated-MARCI__share-button",
+    "SuggestedPrompts": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) .h-full.flex.ml-1.md\\:w-full.md\\:m-auto.gap-0.md\\:gap-2.justify-center, body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.h-8:has(ul.xl\\:mx-3.flex.max-w-3xl.flex-wrap.items-stretch.justify-center), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.hidden.lg\\:block > div.mt-7:has(div > ul.max-w-3xl.flex-wrap.items-stretch.justify-center.gap-2), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.hidden.lg\\:block > div.mt-7:has(> ul.flex-wrap.items-stretch.justify-center.gap-2), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.hidden.lg\\:block > div.mt-7:has(> ul.flex-nowrap.items-stretch.justify-start.gap-2), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.hidden.lg\\:block > div.mt-5:has(> ul.flex-nowrap.items-stretch.justify-start.gap-2), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.hidden.lg\\:block > div.mt-5:has(> ul.flex-wrap.items-stretch.justify-center.gap-2), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.hidden.lg\\:block > div.mt-5:has(> ul.flex-nowrap.items-stretch.justify-start.gap-x-2), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.hidden.lg\\:block > div.mt-5:has(> ul.flex-wrap.items-stretch.justify-center.gap-x-2)",
+    "DashboardTitle": "h1.text-4xl, main div[role=\"presentation\"]:has(div.md\\:pt-0 form.w-full) .flex.h-full.flex-col.items-center.justify-center:not(:has(form.w-full)), main div[role=\"presentation\"] div.flex.h-full.w-full.flex-col.items-center.overflow-y-scroll div.sticky.z-50.mx-auto.-mb-10.h-10.w-10.md\\:-mb-16.md\\:h-16.md\\:w-16, main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.inline-flex.justify-center.text-2xl.leading-9 h1, main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.mb-7:not(:has(h1)) > svg.inline-block.h-12.w-12, div[data-testid=\"screen-composer-parent\"] div.m-auto.text-base > div.mx-auto.flex.h-full div.mb-7 h1, body:not(:has(div[slot=\"content\"] > div.mx-auto.items-center.justify-center > .flex.flex-wrap.items-center > button)) div[data-testid=\"screen-composer-parent\"] .flex.h-full.flex-col.items-center.justify-center:not(:has(h1)), main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto:has(form.w-full) div.inline-flex.justify-center.text-2xl.leading-9 h1",
+    "Sidebar": "main div[role=\"presentation\"] div.h-full[class^=\"react-scroll-to-bottom--css\"], main div[role=\"presentation\"]:has(section[data-testid=\"screen-thread\"] div[slot=\"content\"]):has(div.text-message), main:has(div[role=\"presentation\"] div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4) section:has(div[slot=\"content\"]), main div[role=\"presentation\"]:has(div.\\@container\\/thread):has(div.text-message) div.\\@container\\/thread, main:has(div[role=\"presentation\"] div.mb-6.flex.w-full.flex-col.px-4) section:has(div[slot=\"content\"]), main:has(div[role=\"presentation\"] div.mb-6.flex.w-full.flex-col.px-4) .text-base.my-auto.mx-auto.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full:has(button.group\\/snorlax-control-tile), main div[role=\"presentation\"]:has(div.text-message) div.flex.h-full.flex-col.overflow-y-auto.\\[scrollbar-gutter\\:stable\\]",
+    "ExportButton": "nav",
+    "ExportButtonChatStarted": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center, main .mx-auto.max-w-3xl.px-4 .text-xl.font-medium.md\\:text-2xl, main div[role=\"presentation\"] div.flex.h-full.w-full.flex-col.items-center.overflow-y-scroll div.sticky.z-50.mx-auto.-mb-10.h-10.w-10.md\\:-mb-16.md\\:h-16.md\\:w-16, main div.relative > div.mx-auto.max-w-3xl.px-4.py-12.juice\\:pt-0, main.relative > div.h-full > div.mx-auto.max-w-3xl.overflow-x-clip.px-4, div[data-testid=\"screen-composer-parent\"] div.m-auto.text-base > div.mx-auto.flex.h-full div.mb-7 h1, div[role=\"presentation\"] div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4, div.my-auto.text-base > div.mx-auto.flex.h-full div.mb-5 h1, div[slot=\"content\"] > div.mx-auto.flex.h-full.max-w-2xl.flex-col.items-center.justify-center.gap-8, div[slot=\"content\"] > div.my-16.h-full, .flex.items-center.px-2.py-4.rounded-xl.hover\\:bg-token-main-surface-secondary",
+    "PromptTextarea": "body:not(:has(form div.ProseMirror)):not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)) form textarea:not([name^=\"MARCI__VARIABLE\"]), body:has(div.ProseMirror) main div[role=\"presentation\"] form div.ProseMirror, body:has(div.ProseMirror) main section[data-testid=\"screen-thread\"] form div.ProseMirror",
+    "PromptSubmitButton": "form textarea:not([name^=\"MARCI__VARIABLE\"]) ~ button:last-of-type, form div:has(> textarea:not([name^=\"MARCI__VARIABLE\"])) + button:last-of-type, body:has(div.ProseMirror) main div[role=\"presentation\"] form:has(div.ProseMirror) button[data-testid=\"send-button\"], body:has(div.ProseMirror) main section[data-testid=\"screen-thread\"] form:has(div.ProseMirror) button[data-testid=\"send-button\"]",
+    "ConversationResponseWrapper": ".whitespace-normal",
+    "NewChatSidebar": "nav",
+    "NewChatSidebarButton": ".cursor-pointer",
+    "NewChatSidebarButtonText": "New chat",
+    "NewChatTopbar": ".sticky",
+    "NewChatTopbarButton": "button.px-3",
+    "ElementAddedSidebarID1": "headlessui-portal-root",
+    "ElementAddedSidebarID2": "language-select-wrapper",
+    "ElementAddedSidebarClassNames": [
+      "z-[21] flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary max-md:!w-0",
+      "fixed left-0 top-0 z-50 h-full max-w-xs border-r border-gray-200 bg-token-sidebar-surface-primary shadow-[0_0_64px_0_rgba(0,0,0,0.07)] focus:outline-none top-banner-visible:bottom-0 top-banner-visible:top-[--top-banner-height,0px] top-banner-visible:h-auto dark:border-gray-800"
+    ],
+    "ElementAddedExportButtonDisable": "h1.text-4xl, main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center, main div[role=\"presentation\"] div.flex.h-full.w-full.flex-col.items-center.overflow-y-scroll div.sticky.z-50.mx-auto.-mb-10.h-10.w-10.md\\:-mb-16.md\\:h-16.md\\:w-16, h1.mb-8.text-xl.font-semibold.md\\:text-2xl, div.inline-flex.justify-center.text-2xl.leading-9, div.mx-auto.flex.flex-1.gap-4.text-base.md\\:gap-5.lg\\:gap-6.md\\:max-w-3xl.lg\\:max-w-\\[40rem\\].xl\\:max-w-\\[48rem\\], a[href^=\"/g/g-p-\"] > div.group.relative.flex, li.border-b.border-token-border-xlight > div.group.relative.flex svg, textarea.block.h-10.w-full.resize-none.border-0.bg-transparent.px-0.py-2.text-token-text-primary.placeholder\\:pl-px.placeholder\\:text-token-text-tertiary",
+    "ElementAddedExportButtonEnable": ".w-full.text-token-text-primary .text-base.md\\:max-w-3xl, body:not(:has(#includeMyProfile)) section[data-testid=\"screen-thread\"] div[slot=\"content\"] article:has(.text-message), body:has(a#export-button[style*=\"pointer-events: none;\"]) section[data-testid=\"screen-thread\"] div[slot=\"content\"] article:has(.text-message)",
+    "ElementAddedSavePromptAsTemplate": ".whitespace-normal, body:not(:has(#MARCI__sidebar-icon)) div[role=\"presentation\"] div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4, body:not(:has(#MARCI__sidebar-icon)) div[role=\"presentation\"] div.mb-6.flex.w-full.flex-col.px-4",
+    "LangWrapperSpacer": ".h-32.md\\:h-48.flex-shrink-0",
+    "SavePromptAsTemplatePromptText": ".whitespace-normal, .relative.bg-\\[\\#f4f4f4\\].dark\\:bg-token-main-surface-secondary, .relative.bg-token-message-surface, .whitespace-pre-wrap",
+    "GizmosTitle": "main .mx-auto.max-w-3xl.px-4 .text-xl.font-semibold.md\\:text-2xl",
+    "GizmosTitleIndex": 1,
+    "GizmosContentContainer": "relative flex h-full w-full overflow-hidden transition-colors z-0",
+    "GizmosContentContainers": [
+      "relative flex h-full w-full overflow-hidden transition-colors z-0",
+      "h-fit scroll-mt-28 last:min-h-[calc(100vh-8rem)]",
+      "my-16 h-full",
+      "flex h-full w-full flex-col"
+    ],
+    "CurrentGizmoTitle": ".group.flex.cursor-pointer.items-center.gap-1.rounded-lg.py-1\\.5.font-semibold, .group.flex.cursor-pointer.items-center.gap-1.rounded-lg.py-2.font-semibold, main section[data-testid=\"screen-thread\"] div[slot=\"content\"] .text-2xl.font-semibold, main .flex.flex-col.items-center.gap-2 > .text-2xl.font-semibold",
+    "CurrentGizmoPromptStarters": "form.w-full .h-full.flex.ml-1.md\\:w-full.md\\:m-auto.gap-0.md\\:gap-2.justify-center button, main .mx-3.mt-12.flex.max-w-3xl.flex-wrap.items-stretch.justify-center.gap-4 button",
+    "NewComposerTextarea": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 textarea#prompt-textarea, form div:has(> textarea:not([name^=\"MARCI__VARIABLE\"])) > textarea#prompt-textarea, body:has(div.ProseMirror) main div[role=\"presentation\"] form div.ProseMirror",
+    "ReactFiberPropertyKey": "__reactFiber",
+    "IgnoreElementAdditionByID": "prompt-textarea",
+    "IgnoreByParentID": [
+      "prompt-textarea",
+      "codemirror"
+    ],
+    "IgnoreByParentClassPrefix": [
+      "cm-",
+      "mapboxgl-"
+    ],
+    "IgnoreByElementClassPrefix": [
+      "mapboxgl-",
+      "hjls-"
+    ],
+    "IgnoreByTag": [
+      "g",
+      "img"
+    ],
+    "IgnoreElementsWithoutIdentifiers": true,
+    "ResponseButtonsBlock": "*:has(> .MARCI__conversation__response) div.mb-2.flex.gap-3.-ml-2 > div.items-center.justify-start.rounded-xl.p-1 > div.flex.items-center:not(:has(span.MARCI__watermarkToggle)):not(.rounded-lg), *:has(> .MARCI__conversation__response) div.mb-2.flex.gap-3.-ml-2 > div.items-center.justify-start.rounded-xl.p-1 div.flex.items-center:not(:has(span.MARCI__watermarkToggle)):not(.rounded-lg):not(.pb-0), div.relative.flex-col.gap-1.md\\:gap-3 > div.justify-start.flex > div.flex.items-center:not(:has(span.MARCI__watermarkToggle)):not(.rounded-lg):not(.pb-0)",
+    "ComposerContainer": "div#composer-background, form[data-type=\"unified-composer\"] > div.rounded-\\[28px\\]",
+    "ToolboxButtonsContainer": "div.px-3.py-1 > .mb-2.mt-1.flex.items-center.justify-between.sm\\:mt-5:has(div.flex.gap-x-1\\.5.text-token-text-primary), div.relative > div.bg-primary-surface-primary.bottom-\\[9px\\].left-\\[17px\\].right-0.z-\\[2\\].flex.items-center > div",
+    "SubmitButtonContainer": "&> .flex.gap-x-1\\.5, &> .flex.absolute.gap-2 > .ml-auto",
+    "ComposerDictationOverlay": "div#composer-background canvas.h-8.w-full"
+  },
+  "LayoutChanges": {
+    "PromptTemplates": [
+      {
+        "Selector": "div:has(> h1.text-4xl):not(.MARCI__w-full)",
+        "Add": [
+          "MARCI__w-full"
+        ],
+        "Remove": [
+          "md:h-full",
+          "md:max-w-2xl",
+          "lg:max-w-3xl",
+          "md:pb-[8vh]",
+          "flex"
+        ]
+      },
+      {
+        "Selector": "body:has(main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center) main > div[role=\"presentation\"] > .flex-1.overflow-hidden:not(.overflow-y-auto), body:has(main div[role=\"presentation\"] .grid.grid-cols-1.items-center.justify-end.min-h-\\[74px\\]) main div[role=\"presentation\"] > .flex-1.overflow-hidden:not(.overflow-y-auto), body:has(main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center.text-token-text-primary) main div[role=\"presentation\"] > .flex-1.overflow-hidden, body:not(:has(.text-message)) main div[role=\"presentation\"] > .flex.flex-1.grow.basis-auto.flex-col.overflow-hidden:not(.overflow-y-auto)",
+        "Add": [
+          "overflow-y-auto"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Hide dashboard title (V2)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.inline-flex.justify-center.text-2xl.leading-9 h1:not(.MARCI__hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix placement of the prompt templates section (V2)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full):not(.MARCI__justify-between)",
+        "Add": [
+          "MARCI__justify-between"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix placement of the prompt templates section (V2)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) > div.m-auto.text-base.w-full.px-3",
+        "Add": [],
+        "Remove": [
+          "m-auto"
+        ]
+      },
+      {
+        "Description": "Reduce prompt templates section padding (V2)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) > div.text-base.w-full.xl\\:px-5",
+        "Add": [],
+        "Remove": [
+          "xl:px-5"
+        ]
+      },
+      {
+        "Description": "Fix prompt templates section font (V2 & screen composer)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.inline-flex.justify-center.text-2xl.leading-9.font-semibold, body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div.inline-flex.justify-center.text-2xl.leading-9.font-semibold",
+        "Add": [
+          "min-h-screen",
+          "MARCI__min-h-screen"
+        ],
+        "Remove": [
+          "font-semibold"
+        ]
+      },
+      {
+        "Description": "Fix prompt templates section font (2025-03-12)",
+        "Selector": "main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto:has(form.w-full) div.inline-flex.justify-center.text-2xl.leading-9.font-semibold",
+        "Add": [
+          "min-h-screen",
+          "MARCI__min-h-screen",
+          "MARCI__block"
+        ],
+        "Remove": [
+          "font-semibold"
+        ]
+      },
+      {
+        "Description": "Change prompt textarea input container background (V2 & screen composer)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.mx-auto > div.w-full:has(form.w-full):not(.MARCI__pt-3), section[data-testid=\"screen-thread\"] div[slot=\"content\"] .m-auto.text-base:has(form.w-full) > div.mx-auto > div.w-full:has(form.w-full):not(.MARCI__pt-3)",
+        "Add": [
+          "MARCI__pt-3",
+          "bg-token-main-surface-primary"
+        ],
+        "Remove": []
+      }
+    ],
+    "General": [
+      {
+        "Selector": "main > div[role=\"presentation\"].flex:not(.flex-col)",
+        "Add": [
+          "flex-col",
+          "MARCI__flex-col"
+        ],
+        "Remove": []
+      },
+      {
+        "Selector": "div:has(.flex.items-end.overflow-x-auto.whitespace-normal) #continueActionsGroup.MARCI__invisible, div:has(.group\\/conversation-turn.agent-turn) #continueActionsGroup.MARCI__invisible",
+        "Add": [],
+        "Remove": [
+          "MARCI__invisible"
+        ]
+      },
+      {
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) .overflow-hidden.flex.flex-col.w-full.flex-grow.relative.border.border-token-border-medium.rounded-2xl.bg-token-main-surface-primary, body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) .overflow-hidden.flex.flex-col.w-full.flex-grow.relative.border.border-token-border-medium.rounded-2xl.bg-gray-900.text-white.shadow-xs.dark\\:bg-gray-900",
+        "Add": [
+          "p-2",
+          "pb-4",
+          "md:pl-4"
+        ],
+        "Remove": [
+          "MARCI__p-2"
+        ]
+      },
+      {
+        "Selector": "html div:not(#MARCI__sidebar-container) > #templates-wrapper:not(.pt-20)",
+        "Add": [
+          "pt-20"
+        ],
+        "Remove": []
+      },
+      {
+        "Selector": "body:has(div[role=\"radiogroup\"] > button[value=\"magic\"]) #MARCI__sidebar-icon",
+        "Add": [
+          "MARCI__invisible"
+        ],
+        "Remove": []
+      },
+      {
+        "Selector": "#MARCI__sidebar:not(.MARCI__top-0)",
+        "Add": [
+          "MARCI__top-0"
+        ],
+        "Remove": []
+      },
+      {
+        "Selector": "nav > a.MARCI__flex:not(.MARCI__text-gray-900)",
+        "Add": [
+          "MARCI__text-gray-900",
+          "dark:MARCI__text-gray-100"
+        ],
+        "Remove": [
+          "MARCI__text-white"
+        ]
+      },
+      {
+        "Description": "Starter prompts (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div.grid.w-full.grid-flow-row.grid-cols-1",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Flex col reverse for prompt templates (Hedgehog)",
+        "Selector": "main div[role=\"presentation\"] div.flex.h-full.w-full.flex-col.items-center.overflow-y-scroll",
+        "Add": [
+          "MARCI__flex-col-reverse",
+          "MARCI__overflow-y-auto",
+          "flex-col-reverse"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "overflow-y-auto for prompt templates (Hedgehog)",
+        "Selector": "main div[role=\"presentation\"] div.flex.h-full.w-full.flex-col.items-center.overflow-y-scroll div#templates-wrapper",
+        "Add": [
+          "MARCI__overflow-y-auto",
+          "sm:MARCI__px-4"
+        ],
+        "Remove": [
+          "sm:MARCI__mx-4"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6",
+        "Add": [
+          "MARCI__py-4"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div.relative.top-\\[115px\\].md\\:top-\\[250px\\]",
+        "Add": [],
+        "Remove": [
+          "top-[115px]",
+          "md:top-[250px]"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 .bg-token-main-surface-primary.md\\:top-\\[150px\\].rounded-2xl.sticky.top-\\[75px\\].z-\\[4\\]",
+        "Add": [],
+        "Remove": [
+          "sticky",
+          "top-[75px]",
+          "z-[4]",
+          "md:h-[72px]",
+          "h-[52px]",
+          "md:top-[150px]",
+          "MARCI__pr-4"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div.overflow-hidden.flex.flex-col.w-full.dark\\:border-token-border-heavy.flex-grow.relative.md\\:rounded-2xl.rounded-lg.transition-all",
+        "Add": [
+          "MARCI__pb-12"
+        ],
+        "Remove": [
+          "MARCI__pr-4"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div.absolute.h-screen.w-full.-translate-y-full.bg-token-main-surface-primary",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 textarea#prompt-textarea",
+        "Add": [
+          "MARCI__pb-4",
+          "MARCI__px-4"
+        ],
+        "Remove": [
+          "md:pr-[72px]",
+          "md:py-[22px]",
+          "py-[14px]",
+          "pl-16"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - prompt (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div#prompt-wrapper",
+        "Add": [
+          "MARCI__px-4",
+          "MARCI__pt-4"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input - language & variables (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div#language-select-wrapper, form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div#MARCI__variable-wrapper",
+        "Add": [
+          "MARCI__px-4"
+        ],
+        "Remove": [
+          "lg:MARCI__max-w-3xl",
+          "MARCI__ml-2",
+          "MARCI__mx-2"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - profiles (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div#includeMyProfile",
+        "Add": [
+          "MARCI__pr-16",
+          "MARCI__mb-4",
+          "MARCI__absolute",
+          "MARCI__bottom-0",
+          "MARCI__right-0"
+        ],
+        "Remove": [
+          "MARCI__-mb-1.5"
+        ]
+      },
+      {
+        "Description": "File upload button (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 div.absolute.md\\:top-\\[22px\\].md\\:left-\\[23px\\]",
+        "Add": [
+          "MARCI__bottom-4",
+          "MARCI__left-3",
+          "bottom-4",
+          "left-3"
+        ],
+        "Remove": [
+          "md:top-[22px]",
+          "top-3",
+          "left-2",
+          "md:left-[23px]"
+        ]
+      },
+      {
+        "Description": "Submit button (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 button.absolute.right-4.top-\\[14px\\].h-\\[24px\\].rounded-lg.border.border-black.bg-black.text-white.transition-colors.enabled\\:bg-black.disabled\\:text-gray-400.disabled\\:opacity-40.dark\\:border-white.dark\\:bg-white.dark\\:hover\\:bg-white.md\\:right-\\[21px\\].md\\:top-\\[21px\\]",
+        "Add": [
+          "MARCI__bottom-4",
+          "bottom-4"
+        ],
+        "Remove": [
+          "md:top-[21px]",
+          "md:right-[21px]",
+          "top-[14px]"
+        ]
+      },
+      {
+        "Description": "Mention GPT (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 > div > div.bg-token-main-surface-primary.rounded-2xl",
+        "Add": [
+          "MARCI__relative"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Mention GPT (Hedgehog)",
+        "Selector": "form.w-full.max-w-\\[calc\\(800px\\+24px\\)\\].px-3.md\\:px-6 > div > div.bg-token-main-surface-primary.rounded-2xl div.flex.w-full.flex-row.items-center.rounded-t-2xl.bg-token-main-surface-secondary.px-2.py-1",
+        "Add": [
+          "MARCI__rounded-none"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Mention GPT (overlapping with sidebar)",
+        "Selector": "div.absolute.bottom-16.z-10.w-full.space-y-2",
+        "Add": [
+          "MARCI__z-20"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix visibility of 'save used prompt as a template' button",
+        "Selector": "button.save-prompt-button.md\\:MARCI__invisible",
+        "Add": [],
+        "Remove": [
+          "md:MARCI__invisible"
+        ]
+      },
+      {
+        "Description": "Top navigation buttons (Fruit Juice)",
+        "Selector": ".sticky.top-0.flex.items-center.justify-between.z-10.bg-token-main-surface-primary.font-semibold button.MARCI__share-button",
+        "Add": [],
+        "Remove": [
+          "MARCI__share-button"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - profiles (Fruit Juice)",
+        "Selector": "form #includeMyProfile:not(.MARCI__mb-1)",
+        "Add": [
+          "MARCI__mb-1"
+        ],
+        "Remove": [
+          "MARCI__-mb-1.5"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - temporary chat (Fruit Juice)",
+        "Selector": "html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5.dark.bg-black label, html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5.dark.bg-black #prompt-wrapper",
+        "Add": [
+          "MARCI__text-gray-400"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input - temporary chat disabled (Fruit Juice)",
+        "Selector": "html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5:not(.dark.bg-black) label.MARCI__text-gray-400, html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5:not(.dark.bg-black) #prompt-wrapper.MARCI__text-gray-400",
+        "Add": [],
+        "Remove": [
+          "MARCI__text-gray-400"
+        ]
+      },
+      {
+        "Description": "Save prompt as template button (Fruit Juice)",
+        "Selector": ".absolute.bottom-0.\\[\\.group\\\\\\/conversation-turn\\:hover_\\&\\]\\:block.hidden.pr-5.pt-1.right-full.top-0 .save-prompt-button:not(.MARCI__rounded-full)",
+        "Add": [
+          "MARCI__rounded-full",
+          "MARCI__flex",
+          "MARCI__items-center",
+          "MARCI__justify-center",
+          "MARCI__h-9",
+          "MARCI__w-9",
+          "h-9",
+          "w-9",
+          "MARCI__text-gray-500"
+        ],
+        "Remove": [
+          "MARCI__rounded-md"
+        ]
+      },
+      {
+        "Description": "Save prompt as template button (Fruit Juice)",
+        "Selector": ".group\\/conversation-turn .text-message.whitespace-normal.overflow-x-auto:has(.save-prompt-button)",
+        "Add": [],
+        "Remove": [
+          "overflow-x-auto"
+        ]
+      },
+      {
+        "Description": "Save prompt as template button (Fruit Juice)",
+        "Selector": ".absolute.bottom-0.\\[\\.group\\\\\\/conversation-turn\\:hover_\\&\\]\\:block.hidden.pr-5.pt-1.right-full.top-0:not(.-mt-4):has(.save-prompt-button):not(.MARCI__-mt-3)",
+        "Add": [
+          "-mt-3",
+          "pt-3",
+          "MARCI__-mt-3",
+          "MARCI__pt-3"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Share Chat button (Fruit Juice)",
+        "Selector": "div:has(.text-message.flex.flex-col.items-end.whitespace-normal.break-words) .sticky.top-0.flex.p-3.items-center.justify-between.z-10.bg-token-main-surface-primary.font-semibold:not(.h-header-height)",
+        "Add": [
+          "MARCI__pr-16",
+          "MARCI__pr-[4.5rem]",
+          "MARCI__mr-4"
+        ],
+        "Remove": [
+          "p-3"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - textarea (Fruit Juice)",
+        "Selector": "body:not(:has(form div.ProseMirror)):not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)):not(:has(.h-\\[100vh\\] div[role=\"presentation\"] form)) form:has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)) div.flex.min-w-0.flex-1.flex-col:has(textarea)",
+        "Add": [
+          "-mr-12",
+          "MARCI__-mr-12",
+          "MARCI__ml-3"
+        ],
+        "Remove": [
+          "pl-4"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - textarea (Fruit Juice)",
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)):not(:has(.h-\\[100vh\\] div[role=\"presentation\"] form)) form:has(textarea):has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)) div.flex.items-end.gap-1\\.5.md\\:gap-2:has(button[aria-haspopup=\"menu\"]) > div:has(input[type=\"file\"]):not(.MARCI__absolute)",
+        "Add": [
+          "MARCI__absolute"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Prompt panel (Fruit Juice)",
+        "Selector": "#MARCI__PromptPanel:not(.MARCI__-ml-1\\.5)",
+        "Add": [
+          "-ml-1.5",
+          "MARCI__-ml-1.5"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix prompt templates container (clipped composer bar)",
+        "Selector": "main > div.contents > div[role=\"presentation\"].composer-parent div.masked-content.overflow-hidden",
+        "Add": [],
+        "Remove": [
+          "masked-content",
+          "overflow-hidden"
+        ]
+      },
+      {
+        "Description": "Fix prompt input (clipped composer bar)",
+        "Selector": "main > div.contents > div[role=\"presentation\"].composer-parent div.absolute.mask-scrollbars > div.flex.mx-auto.max-w-3xl",
+        "Add": [],
+        "Remove": [
+          "max-w-3xl"
+        ]
+      },
+      {
+        "Description": "Fix prompt input (clipped composer bar)",
+        "Selector": "main > div.contents > div[role=\"presentation\"].composer-parent div.mask-scrollbars:has(form.w-full):not(.MARCI__sticky)",
+        "Add": [
+          "sticky",
+          "MARCI__sticky"
+        ],
+        "Remove": [
+          "absolute"
+        ]
+      },
+      {
+        "Description": "Fix conversation container (clipped composer bar)",
+        "Selector": "main > div.contents > div[role=\"presentation\"].composer-parent:has(.text-message) > div.flex-1:not(.MARCI__overflow-hidden)",
+        "Add": [
+          "MARCI__overflow-hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix conversation container - scroll to bottom button (clipped composer bar)",
+        "Selector": "main > div.contents > div[role=\"presentation\"].composer-parent:has(.text-message):has(.mask-scrollbars) > div.flex-1 button.cursor-pointer.absolute.rounded-full.right-1\\/2",
+        "Add": [
+          "right-8"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix visibility of the prompt templates section - temporary chat disabled (V2)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center.MARCI__justify-between:has(form.w-full):has(#templates-wrapper).MARCI__hidden",
+        "Add": [],
+        "Remove": [
+          "MARCI__hidden"
+        ]
+      },
+      {
+        "Description": "Hide duplicated prompt templates section - temporary chat disabled (V2)",
+        "Selector": "main div[role=\"presentation\"]:has(.flex.h-full.flex-col.items-center.justify-center.MARCI__justify-between #templates-wrapper) div.relative.h-full > #templates-wrapper",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": [
+          "md:MARCI__flex"
+        ]
+      },
+      {
+        "Description": "Fix visibility of the prompt templates section - small viewport (V2)",
+        "Selector": "main div[role=\"presentation\"]:not(:has(.flex.h-full.flex-col.items-center.justify-center.MARCI__justify-between #templates-wrapper)) div.relative.h-full > #templates-wrapper:not(.md\\:MARCI__flex",
+        "Add": [
+          "md:MARCI__flex"
+        ],
+        "Remove": [
+          "MARCI__hidden"
+        ]
+      },
+      {
+        "Description": "Reduce prompt templates section top padding (V2)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div:not(#MARCI__sidebar-container) > #templates-wrapper:not(.MARCI__pt-8)",
+        "Add": [
+          "MARCI__pt-8"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input - resize prompt input container (V2 & screen composer)",
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)):not(:has(.h-\\[100vh\\] div[role=\"presentation\"] form)) .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) form.w-full:not(.MARCI__m-auto), body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div[slot=\"content\"] .m-auto.text-base:has(form.w-full) > div.mx-auto > div.w-full:has(form.w-full) form.w-full:not(.MARCI__m-auto)",
+        "Add": [
+          "MARCI__m-auto",
+          "md:max-w-3xl",
+          "lg:max-w-[40rem]",
+          "xl:max-w-[48rem]"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input - resize prompt input container (2025-03-12)",
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)):not(:has(.h-\\[100vh\\] div[role=\"presentation\"] form)) .flex.flex-1.grow.basis-auto:has(form.w-full) form.w-full:not(.MARCI__m-auto)",
+        "Add": [
+          "MARCI__m-auto",
+          "@md/thread:max-w-3xl"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Position prompt textarea input as sticky (V2 & screen composer)",
+        "Selector": "main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.mx-auto > div.w-full:has(form.w-full):not(.MARCI__sticky), body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div[slot=\"content\"] .m-auto.text-base:has(form.w-full) > div.mx-auto > div.w-full:has(form.w-full):not(.MARCI__sticky), main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto:has(form.w-full) div.mx-auto > div.w-full:has(form.w-full):not(.MARCI__sticky):not(.xs\\:\\-mt-6)",
+        "Add": [
+          "sticky",
+          "bottom-0",
+          "MARCI__sticky",
+          "MARCI__bottom-0"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix placement of footer - (V2 & clipped composer bar)",
+        "Selector": "main > div.contents > div[role=\"presentation\"].composer-parent div.absolute.mask-scrollbars:not(:has(form.w-full))",
+        "Add": [],
+        "Remove": [
+          "absolute"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - textarea (V2 - ProseMirror)",
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)):not(:has(.h-\\[100vh\\] div[role=\"presentation\"] form)) form:has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)) div.flex.min-w-0.flex-1.flex-col:has(div.ProseMirror):not(.MARCI__-mr-12)",
+        "Add": [
+          "MARCI__-mr-12"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input - attach file button (V2 - ProseMirror)",
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)):not(:has(.h-\\[100vh\\] div[role=\"presentation\"] form)) form:has(div.ProseMirror):has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)) div.flex.items-end.gap-1\\.5.md\\:gap-2:has(button[aria-haspopup=\"menu\"]) > div:has(input[type=\"file\"]):not(.MARCI__absolute)",
+        "Add": [
+          "MARCI__absolute",
+          "MARCI__z-20"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Remove prompt input container max height (V2 - ProseMirror)",
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])):not(:has(div.relative.flex.w-full.grow.overflow-hidden > div.hidden.w-1\\/2.pt-4)):not(:has(.h-\\[100vh\\] div[role=\"presentation\"] form)) form:has(div.ProseMirror) div.max-h-52.max-h-\\[25dvh\\].default-browser",
+        "Add": [],
+        "Remove": [
+          "max-h-52",
+          "max-h-[25dvh]"
+        ]
+      },
+      {
+        "Description": "Set prompt input max height (V2 - ProseMirror)",
+        "Selector": "body:has(div.ProseMirror) main div[role=\"presentation\"] form:has(div.ProseMirror) div.ProseMirror:not(.MARCI__overflow-y-auto)",
+        "Add": [
+          "max-h-52",
+          "max-h-[25dvh]",
+          "MARCI__overflow-y-auto"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Resize the prompt templates section (V2 & screen composer)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.mx-auto.gap-4.text-base.md\\:gap-5.lg\\:gap-6.md\\:max-w-3xl, body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto.md\\:max-w-3xl, body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto.md\\:max-w-3xl",
+        "Add": [],
+        "Remove": [
+          "md:max-w-3xl",
+          "lg:max-w-[40rem]",
+          "xl:max-w-[48rem]",
+          "lg:justify-center"
+        ]
+      },
+      {
+        "Description": "Fix double scrolling issue on conversation page (V2)",
+        "Selector": "main > div[role=\"presentation\"] > .flex-1.overflow-hidden.overflow-y-auto:has(.text-message), main div[role=\"presentation\"] > .flex-1.overflow-hidden.overflow-y-auto:has(.text-message)",
+        "Add": [],
+        "Remove": [
+          "overflow-y-auto"
+        ]
+      },
+      {
+        "Description": "Hide system hints",
+        "Selector": "form.w-full div.absolute.bottom-16.space-y-2.z-20:has(div.z-50.max-w-xs.rounded-2xl):not(.MARCI__hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input - temporary chat (V2 & screen composer)",
+        "Selector": "html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5.dark.bg-black select:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5.dark.bg-black textarea[name^=\"MARCI__VARIABLE\"]:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5.dark.bg-black button#continueWritingButton:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-3xl.py-1.dark.bg-\\[\\#303030\\] select:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-3xl.py-1.dark.bg-\\[\\#303030\\] textarea[name^=\"MARCI__VARIABLE\"]:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-3xl.py-1.dark.bg-\\[\\#303030\\] button#continueWritingButton:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl.dark.bg-\\[\\#303030\\] select:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl.dark.bg-\\[\\#303030\\] textarea[name^=\"MARCI__VARIABLE\"]:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl.dark.bg-\\[\\#303030\\] button#continueWritingButton:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\].dark.bg-\\[\\#303030\\] select:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\].dark.bg-\\[\\#303030\\] textarea[name^=\"MARCI__VARIABLE\"]:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\].dark.bg-\\[\\#303030\\] button#continueWritingButton:not(.MARCI__text-white)",
+        "Add": [
+          "MARCI__text-white",
+          "MARCI__bg-gray-850",
+          "hover:MARCI__bg-gray-800",
+          "group-hover:MARCI__bg-gray-800"
+        ],
+        "Remove": [
+          "group-hover:MARCI__bg-gray-200"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - temporary chat disabled (V2 & screen composer)",
+        "Selector": "html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5:not(.dark.bg-black) select.MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5:not(.dark.bg-black) textarea[name^=\"MARCI__VARIABLE\"].MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.gap-1\\.5.rounded-\\[26px\\].p-1\\.5:not(.dark.bg-black) button#continueWritingButton.group-hover\\:MARCI__bg-gray-800, html:not(.dark) .flex.w-full.flex-col.rounded-3xl.py-1:not(.dark.bg-\\[\\#303030\\]) select.MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.rounded-3xl.py-1:not(.dark.bg-\\[\\#303030\\]) textarea[name^=\"MARCI__VARIABLE\"].MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.rounded-3xl.py-1:not(.dark.bg-\\[\\#303030\\]) button#continueWritingButton.group-hover\\:MARCI__bg-gray-800, html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl:not(.dark.bg-\\[\\#303030\\]) select.MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl:not(.dark.bg-\\[\\#303030\\]) textarea[name^=\"MARCI__VARIABLE\"].MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl:not(.dark.bg-\\[\\#303030\\]) button#continueWritingButton.group-hover\\:MARCI__bg-gray-800, html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\]:not(.dark.bg-\\[\\#303030\\]) select.MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\]:not(.dark.bg-\\[\\#303030\\]) textarea[name^=\"MARCI__VARIABLE\"].MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\]:not(.dark.bg-\\[\\#303030\\]) button#continueWritingButton.group-hover\\:MARCI__bg-gray-800",
+        "Add": [
+          "group-hover:MARCI__bg-gray-200"
+        ],
+        "Remove": [
+          "MARCI__text-white",
+          "MARCI__bg-gray-850",
+          "hover:MARCI__bg-gray-800",
+          "group-hover:MARCI__bg-gray-800"
+        ]
+      },
+      {
+        "Description": "Textarea placeholder text color (V2)",
+        "Selector": "textarea[name=\"Teaser\"]:not(.placeholder\\:text-gray-500), textarea[name=\"Teaser\"]:not(.placeholder\\:text-gray-500), textarea[name=\"Prompt\"]:not(.placeholder\\:text-gray-500), textarea[name=\"FeedbackText\"]:not(.placeholder\\:text-gray-500)",
+        "Add": [
+          "placeholder:text-gray-500"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Top navigation padding - custom GPT dropdown (V2)",
+        "Selector": "div:has(.text-message.flex.flex-col.items-end.whitespace-normal.break-words) .sticky.top-0.flex.items-center.justify-between.z-10.bg-token-main-surface-primary.font-semibold:not(:has(span.text-token-text-secondary)):not(.MARCI__ml-3)",
+        "Add": [
+          "MARCI__ml-3"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix placement of footer (V2 & screen composer)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto > div.lg\\:absolute.lg\\:bottom-0, body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto > div.lg\\:absolute.lg\\:bottom-2, body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div[slot=\"content\"] div.mx-auto > div.lg\\:absolute.lg\\:bottom-0, body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto > div.\\@lg\\/thread\\:bottom-0, body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto > div.\\@lg\\/thread\\:absolute.\\@lg\\/thread\\:bottom-0, body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div[slot=\"content\"] div.mx-auto > div.\\@lg\\/thread\\:absolute.\\@lg\\/thread\\:bottom-0",
+        "Add": [],
+        "Remove": [
+          "lg:absolute",
+          "@lg/thread:absolute",
+          "@lg/thread:bottom-0"
+        ]
+      },
+      {
+        "Description": "Reduce horizontal padding of the prompt templates section (V2)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full.xl\\:px-5",
+        "Add": [],
+        "Remove": [
+          "md:px-4",
+          "md:px-5",
+          "lg:px-4",
+          "lg:px-5",
+          "xl:px-5"
+        ]
+      },
+      {
+        "Description": "Fix prompt templates section on small viewport (V2 & screen composer)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto:has(div.mb-7.lg\\:block) > div.justify-center.lg\\:hidden:not(.MARCI__hidden), body:not(:has(.text-message)) section[data-testid=\"screen-thread\"]:has(form.w-full) div.mx-auto:has(div.mb-7.lg\\:block) > div.justify-center.lg\\:hidden:not(.MARCI__hidden), body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto:has(div.mb-7.\\@lg\\/thread\\:block) > div.justify-center.\\@lg\\/thread\\:hidden:not(.MARCI__hidden), body:not(:has(.text-message)) section[data-testid=\"screen-thread\"]:has(form.w-full) div.mx-auto:has(div.mb-7.\\@lg\\/thread\\:block) > div.justify-center.\\@lg\\/thread\\:hidden:not(.MARCI__hidden), body:not(.text-message) main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto.flex-col div.grid.min-h-\\[74px\\].grid-cols-1.items-center.justify-end h1:not(.MARCI__hidden), body:not(.text-message) main div[role=\"presentation\"] div.grid.min-h-\\[74px\\].grid-cols-1.items-center.justify-end h1:not(.MARCI_hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix prompt templates section on small viewport (V2 & screen composer)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto:has(div.justify-center.MARCI__hidden) > div.mb-7.hidden.lg\\:block, body:not(:has(.text-message)) section[data-testid=\"screen-thread\"]:has(form.w-full) div.mx-auto:has(h1.MARCI__hidden) > div.mb-7.hidden.lg\\:block, body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.text-base.px-3.m-auto.w-full.h-full > div.mx-auto:has(div.justify-center.MARCI__hidden) > div.mb-7.hidden.\\@lg\\/thread\\:block, body:not(:has(.text-message)) section[data-testid=\"screen-thread\"]:has(form.w-full) div.mx-auto:has(h1.MARCI__hidden) > div.mb-7.hidden.\\@lg\\/thread\\:block, body:not(:has(.text-message)) main:has(form.w-full) div.mx-auto:has(h1.MARCI__hidden) > div.mb-7.hidden.\\@lg\\/thread\\:block, body:not(:has(.text-message)) main:has(form.w-full) div.mx-auto:has(h1.MARCI__hidden) > div.mb-5.text-center.hidden.\\@lg\\/thread\\:block",
+        "Add": [],
+        "Remove": [
+          "hidden"
+        ]
+      },
+      {
+        "Description": "Fix position of 'include my profile info' (Model selector in prompt composer)",
+        "Selector": "form:has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)):has(.flex.h-\\[44px\\]):has(.flex.gap-x-1.text-token-text-primary > div:nth-child(5)) #includeMyProfile:not(.MARCI__bottom-2), form:has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)):has(.flex.gap-x-1\\.5):has(.flex.gap-x-1\\.5.text-token-text-primary > div:nth-child(3) button.min-w-8) #includeMyProfile:not(.\\@2xl\\/prompt-composer\\:MARCI__absolute.MARCI__bottom-2)",
+        "Add": [
+          "@2xl/prompt-composer:MARCI__absolute",
+          "@2xl/prompt-composer:MARCI__text-right",
+          "MARCI__bottom-2",
+          "MARCI__right-14",
+          "bottom-2",
+          "right-14"
+        ],
+        "Remove": [
+          "@xl/prompt-composer:MARCI__absolute",
+          "@xl/prompt-composer:MARCI__text-right",
+          "MARCI__pl-10",
+          "MARCI__pr-10"
+        ]
+      },
+      {
+        "Description": "Fix position of 'include my profile info' (SearchGPT)",
+        "Selector": "form:has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)):has(.flex.h-\\[44px\\]):not(:has(.flex.gap-x-1.text-token-text-primary > div:nth-child(5))) #includeMyProfile:not(.MARCI__bottom-2), form:has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)):has(.flex.gap-x-1\\.5):not(:has(.flex.gap-x-1\\.5.text-token-text-primary > div:nth-child(3) button.min-w-8)) #includeMyProfile:not(.\\@xl\\/prompt-composer\\:MARCI__absolute.MARCI__bottom-2)",
+        "Add": [
+          "@xl/prompt-composer:MARCI__absolute",
+          "@xl/prompt-composer:MARCI__text-right",
+          "MARCI__bottom-2",
+          "MARCI__right-14",
+          "bottom-2",
+          "right-14"
+        ],
+        "Remove": [
+          "@2xl/prompt-composer:MARCI__absolute",
+          "@2xl/prompt-composer:MARCI__text-right",
+          "MARCI__pl-10",
+          "MARCI__pr-10"
+        ]
+      },
+      {
+        "Description": "Fix positioning of announcement bar (screen composer)",
+        "Selector": "main div[role=\"presentation\"] div.m-auto.text-base.px-3.w-full.h-full > div.mx-auto.text-base > div.lg\\:w-full.lg\\:absolute.lg\\:bottom-8, main div[role=\"presentation\"] div.m-auto.text-base.px-3.w-full.h-full > div.mx-auto.text-base > div.\\@lg\\/thread\\:w-full.\\@lg\\/thread\\:absolute.\\@lg\\/thread\\:bottom-8",
+        "Add": [
+          "MARCI__sticky"
+        ],
+        "Remove": [
+          "lg:absolute",
+          "@lg/thread:absolute"
+        ]
+      },
+      {
+        "Description": "Hide result streaming H1 (screen composer)",
+        "Selector": "div[data-testid=\"screen-composer-parent\"] div.m-auto.text-base > div.mx-auto.flex.h-full div.mb-7 h1.result-streaming:not(.MARCI__hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix MARCI watermark position (screen composer)",
+        "Selector": "section[data-testid=\"screen-thread\"] div[slot=\"content\"]:has(article) article:not(:has(div[data-message-author-role=\"user\"])) div.agent-turn .flex.flex-grow.flex-col.max-w-full:has(.markdown.prose.w-full.break-words.dark\\:prose-invert) div.text-message:not(.MARCI__relative)",
+        "Add": [
+          "MARCI__relative"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Resize prompt templates section (screen composer)",
+        "Selector": "body:not(:has(.text-message)) div[data-testid=\"screen-composer-parent\"] div.m-auto.text-base > div.mx-auto.flex.h-full.max-w-\\[var\\(--screen-content-ideal-size\\)\\]:has(> div.mb-7 h1)",
+        "Add": [],
+        "Remove": [
+          "max-w-[var(--screen-content-ideal-size)]",
+          "pt-[20svh]",
+          "can-hover:pt-[15svh]"
+        ]
+      },
+      {
+        "Description": "Hide MARCI sidebar icon on dashboard (screen composer)",
+        "Selector": "body:not(:has(.text-message)) div[role=\"presentation\"]:has(section[data-testid=\"screen-thread\"] div[slot=\"content\"]):not(:has(div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4)) #MARCI__sidebar-icon:not(.MARCI__hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Show MARCI sidebar icon on dashboard (screen composer)",
+        "Selector": "body:has(.text-message) div[role=\"presentation\"]:has(section[data-testid=\"screen-thread\"] div[slot=\"content\"]) #MARCI__sidebar-icon.MARCI__hidden",
+        "Add": [],
+        "Remove": [
+          "MARCI__hidden"
+        ]
+      },
+      {
+        "Description": "Move MARCI sidebar to top (screen composer)",
+        "Selector": "body:has(.text-message) div[role=\"presentation\"]:has(section[data-testid=\"screen-thread\"] div[slot=\"content\"]) #MARCI__sidebar:not(.MARCI__z-30)",
+        "Add": [
+          "MARCI__z-30"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Reduce prompt templates section padding (screen composer)",
+        "Selector": "body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div[slot=\"content\"] div.h-full.w-full > div.h-full.xl\\:px-5, body:not(:has(.text-message)) main > div[role=\"presentation\"] div.h-full.w-full > div.h-full.xl\\:px-5, body:not(:has(.text-message)) main div[role=\"presentation\"] div.basis-auto.flex-col.overflow-hidden > div.h-full.xl\\:px-5",
+        "Add": [],
+        "Remove": [
+          "xl:px-5",
+          "lg:px-4",
+          "md:px-5",
+          "md:px-4"
+        ]
+      },
+      {
+        "Description": "Hide autocomplete suggestions (screen composer)",
+        "Selector": "body:not(:has(.text-message)) section[data-testid=\"screen-thread\"] div[slot=\"content\"] div.hidden.lg\\:block.h-\\[70px\\]",
+        "Add": [],
+        "Remove": [
+          "lg:block"
+        ]
+      },
+      {
+        "Description": "Fix position of secondary bar (DALL-E controls - screen composer)",
+        "Selector": "section[data-testid=\"screen-thread\"] div[slot=\"content\"] div[bar-type=\"secondary\"][data-testid=\"bar-default\"]:not(.MARCI__m-auto)",
+        "Add": [
+          "MARCI__m-auto",
+          "md:max-w-3xl",
+          "lg:max-w-[40rem]",
+          "xl:max-w-[48rem]"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix visibility of MARCI sidebar (screen composer)",
+        "Selector": "div[role=\"presentation\"]:has(section[data-testid=\"screen-thread\"] div[slot=\"content\"]):has(div.text-message):has(#MARCI__sidebar):not(.MARCI__relative)",
+        "Add": [
+          "MARCI__relative",
+          "MARCI__overflow-x-hidden",
+          "overflow-x-hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Reduce prompt templates section top padding (screen composer)",
+        "Selector": "main div[role=\"presentation\"] section[data-testid=\"screen-thread\"] div[slot=\"content\"]:has(form.w-full) div.flex.flex-col.h-full.justify-center.mt-\\[var\\(--screen-optical-offset-amount\\)\\].mx-auto.text-base",
+        "Add": [],
+        "Remove": [
+          "mt-[var(--screen-optical-offset-amount)]"
+        ]
+      },
+      {
+        "Description": "Reduce prompt templates section top padding (screen composer)",
+        "Selector": "main div[role=\"presentation\"] section[data-testid=\"screen-thread\"] div[slot=\"content\"] div:not(#MARCI__sidebar-container) > #templates-wrapper:not(.MARCI__pt-2)",
+        "Add": [
+          "MARCI__pt-2"
+        ],
+        "Remove": [
+          "MARCI__mt-6",
+          "MARCI__m-auto"
+        ]
+      },
+      {
+        "Description": "Fix position of MARCI sidebar icon (screen composer)",
+        "Selector": "body:has(.text-message) div[role=\"presentation\"]:has(section[data-testid=\"screen-thread\"] div[slot=\"content\"]) #MARCI__sidebar-icon:not(.MARCI__absolute)",
+        "Add": [
+          "MARCI__absolute"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Hide MARCI sidebar on dashboard (screen composer)",
+        "Selector": "body:not(:has(.text-message)) div[role=\"presentation\"]:has(section[data-testid=\"screen-thread\"] div[slot=\"content\"]):not(:has(div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4)) #MARCI__sidebar.MARCI__translate-x-0",
+        "Add": [
+          "MARCI__translate-x-full"
+        ],
+        "Remove": [
+          "MARCI__translate-x-0"
+        ]
+      },
+      {
+        "Description": "Fix dashboard height (screen composer)",
+        "Selector": "section[data-testid=\"screen-thread\"][class*=\"_screenEmptyState\"]:not(.max-h-\\[100cqh\\]), section[data-testid=\"screen-thread\"]:has([name=temporary-chat-checkbox]:checked):not(.max-h-\\[100cqh\\])",
+        "Add": [
+          "max-h-[100cqh]"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix right padding of the prompt composer (screen composer)",
+        "Selector": "section[data-testid=\"screen-thread\"] div[class*=\"_prosemirror-parent_\"].MARCI__pr-4:not(.pr-0)",
+        "Add": [
+          "pr-0"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Hide suggested prompts (screen composer)",
+        "Selector": "body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.\\@lg\\/thread\\:hidden div.mt-5:has(> ul.flex-wrap.items-stretch.justify-center.gap-x-2):not(.MARCI__hidden), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.\\@lg\\/thread\\:block div.mt-5:has(> ul.flex-wrap.items-stretch.justify-center.gap-x-2):not(.MARCI__hidden), body:not(:has(div[role=\"radiogroup\"] > button[value=\"magic\"])) div.\\@lg\\/thread\\:block > div.mt-5:has(> ul.flex-nowrap.items-stretch.justify-start.gap-x-2):not(.MARCI__hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Resize the prompt templates section (2024-12-09)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.mx-auto.flex-col.text-base.\\@md\\/thread\\:max-w-3xl.\\@lg\\/thread\\:max-w-\\[40rem\\].\\@xl\\/thread\\:max-w-\\[48rem\\], body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.mx-auto.flex-col.text-base.\\@md\\/thread\\:max-w-3xl, body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto:has(form.w-full) div.mx-auto.flex-col.text-base.\\@md\\/thread\\:max-w-3xl",
+        "Add": [],
+        "Remove": [
+          "@md/thread:max-w-3xl",
+          "@lg/thread:max-w-[40rem]",
+          "@xl/thread:max-w-[48rem]",
+          "justify-center",
+          "@lg/thread:justify-center"
+        ]
+      },
+      {
+        "Description": "Fix position of 'all tools' prompt composer dropdown",
+        "Selector": "form.w-full > div.relative.flex.h-full.max-w-full.flex-1.flex-col > div.absolute.bottom-full.my-3.z-20.lg\\:top-full",
+        "Add": [],
+        "Remove": [
+          "lg:top-full"
+        ]
+      },
+      {
+        "Description": "Resize the prompt templates section (2024-12-09)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.h-full.m-auto.px-3.text-base.w-full:has(div.mx-auto.flex-col.text-base):not(.\\[\\&\\>\\:first-child\\]\\:\\!MARCI__max-w-full), body:not(:has(.text-message)) main div[role=\"presentation\"] .flex.h-full.flex-col.items-center.justify-center:has(form.w-full) div.my-auto.h-full.text-base.w-full:has(div.mx-auto.flex-col.text-base):not(.\\[\\&\\>\\:first-child\\]\\:\\!MARCI__max-w-full), body:not(:has(button.group\\/snorlax-control-tile)) main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto:has(form.w-full) div.my-auto.h-full.text-base.w-full:has(div.mx-auto.flex-col.text-base):not(.\\[\\&\\>\\:first-child\\]\\:\\!MARCI__max-w-full)",
+        "Add": [
+          "[&>:first-child]:!MARCI__max-w-full",
+          "[&>:first-child]:!MARCI__justify-normal"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Move top navigation buttons to the left (Projects)",
+        "Selector": "main:has(div[role=\"presentation\"] div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4) div[slot=\"leading\"] div[bar-type=\"primary\"]:not(.MARCI__mr-4), main:has(div[role=\"presentation\"] div.m-auto.text-base.px-3.md\\:px-4.w-full.md\\:px-5.lg\\:px-4.xl\\:px-5.h-full > div.mb-6.flex.w-full.flex-col.px-4) div[slot=\"leading\"] div.flex.items-center.pr-1.leading-\\[0\\]:not(.MARCI__mr-4):not(.\\@lg\\/screen-composer\\:gap-2), main:has(div[role=\"presentation\"] div.mb-6.flex.w-full.flex-col.px-4) div[slot=\"leading\"] div.flex.items-center.pr-1.leading-\\[0\\]:not(.MARCI__mr-4):not(.\\@lg\\/screen-composer\\:gap-2), main:has(div[role=\"presentation\"] div.mb-6.flex.w-full.flex-col.px-4):has(button.group\\/snorlax-control-tile) div.flex.items-center.pr-1.leading-\\[0\\]:not(.MARCI__mr-4):not(.\\@lg\\/screen-composer\\:gap-2)",
+        "Add": [
+          "MARCI__mr-4",
+          "MARCI__pr-16"
+        ],
+        "Remove": [
+          "pr-1"
+        ]
+      },
+      {
+        "Description": "Fix MARCI watermark for user messages on initial load",
+        "Selector": ".flex.flex-1.text-base.mx-auto.gap-4.md\\:max-w-3xl .flex.flex-grow.flex-col.max-w-full:has(div[data-message-author-role=\"user\"]).MARCI__conversation__response, .w-full.text-token-text-primary:not(:has(div.agent-turn)).sm\\:MARCI__conversation__response",
+        "Add": [],
+        "Remove": [
+          "MARCI__conversation__response",
+          "sm:MARCI__conversation__response"
+        ]
+      },
+      {
+        "Description": "Add container class to the prompt composer container (Model selector in prompt composer)",
+        "Selector": "div.w-full:has(> #composer-background):not(.MARCI__\\@container\\/prompt-composer)",
+        "Add": [
+          "MARCI__@container/prompt-composer"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Remove padding, margin and translate from thread container",
+        "Selector": ".flex-1.overflow-hidden.\\@container\\/thread.translate-y-\\[1\\.5rem\\].-mt-\\[1\\.5rem\\].pb-\\[1\\.5rem\\].overflow-y-auto, .flex-1.overflow-hidden.\\@container\\/thread.translate-y-\\[2rem\\].-mt-\\[2rem\\].pb-\\[1\\.5rem\\].overflow-y-auto",
+        "Add": [],
+        "Remove": [
+          "translate-y-[1.5rem]",
+          "-mt-[1.5rem]",
+          "pb-[1.5rem]",
+          "translate-y-[2rem]",
+          "-mt-[2rem]"
+        ]
+      },
+      {
+        "Description": "Resize presentation composer-parent",
+        "Selector": ".composer-parent.flex.flex-col.focus-visible\\:outline-0.h-\\[calc\\(100\\%-1\\.5rem\\)\\], .composer-parent.flex.flex-col.focus-visible\\:outline-0.h-\\[calc\\(100\\%-2rem\\)\\]",
+        "Add": [
+          "MARCI__h-full"
+        ],
+        "Remove": [
+          "h-[calc(100%-1.5rem)]",
+          "h-[calc(100%-2rem)]"
+        ]
+      },
+      {
+        "Description": "Fix invisible 'edit' and 'copy' actions for user messages",
+        "Selector": "div.text-message div.\\[\\.group\\/conversation-turn\\:hover\\_\\&\\]\\:flex:not(.\\[\\.group\\\\\\/conversation-turn\\:hover\\_\\&\\]\\:flex)",
+        "Add": [
+          "[.group\\/conversation-turn:hover_&]:flex"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix position of save prompt button",
+        "Selector": "button.save-prompt-button:not(.MARCI__h-fit.MARCI__pt-2)",
+        "Add": [
+          "MARCI__h-fit",
+          "MARCI__pt-2"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix overlapping icons in top navigation (CanMore & screen composer)",
+        "Selector": "body:not(:has(div[data-testid=\"screen-composer\"])) section.popover.w-full.h-full > header.flex.items-center.p-3 > div.flex.items-center.gap-2:not(.MARCI__pr-16), body:not(:has(div[data-testid=\"screen-composer\"])) section.popover.w-full.h-full > header.flex.items-center.px-3 > div.flex.items-center.leading-\\[0\\].select-none:not(.MARCI__pr-16), body:has(.text-message) section[data-testid=\"screen-thread\"] div[slot=\"leading\"] div:has(> div.flex.items-center.gap-2):not(.MARCI__pr-16), body:has(.text-message) section[data-testid=\"screen-thread\"] div[slot=\"leading\"] div:has(> div.flex.items-center.pr-1.leading-\\[0\\]):not(.MARCI__pr-16)",
+        "Add": [
+          "MARCI__pr-16",
+          "MARCI__mr-4"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Move citations panel close button (search)",
+        "Selector": "body:not(:has(div[data-testid=\"screen-composer-parent\"])) section[data-panel=\"screen-threadFlyOut\"] div[slot=\"leading\"] div.bg-token-main-surface-primary:has(> button[data-testid=\"close-button\"]):not(.MARCI__pr-16), body:not(:has(div[data-testid=\"screen-composer-parent\"])) section[data-testid=\"screen-threadFlyOut\"] div[slot=\"leading\"] div.bg-token-main-surface-primary:has(> button[data-testid=\"close-button\"]):not(.MARCI__pr-16)",
+        "Add": [
+          "MARCI__pr-16",
+          "MARCI__mr-4",
+          "mr-9",
+          "!MARCI__mr-10"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Hide overflowing MARCI sidebar on the conversation page",
+        "Selector": "div.\\@container\\/thread.basis-auto.flex-1.grow.overflow-hidden:has(#MARCI__sidebar):not(.MARCI__relative)",
+        "Add": [
+          "MARCI__relative"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix prompt templates section on small viewport",
+        "Selector": "body:not(:has(.text-message)) main:has(form.w-full) div.mx-auto:has(h1.MARCI__hidden) > div.mb-5.text-center.\\@lg\\/thread\\:block .grid.min-h-\\[74px\\].grid-cols-1.items-center.justify-end > h1.items-end:not(.MARCI__hidden), body:not(:has(.text-message)) main:has(form.w-full) div.mx-auto:has(h1.MARCI__hidden) > div.mb-5.text-center.\\@lg\\/thread\\:block .grid.min-h-\\[74px\\].grid-cols-1.items-center.justify-end > div.justify-end.\\[grid-area\\:1\\/1\\]:not(.MARCI__hidden), body:not(.text-message) main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto.flex-col.\\@container\\/thread div.grid.min-h-\\[74px\\].grid-cols-1.items-center.justify-end h1:not(.MARCI__hidden), body:not(.text-message) main div[role=\"presentation\"] .flex.flex-1.grow.basis-auto.flex-col.\\@container\\/thread div.grid.min-h-\\[74px\\].grid-cols-1.items-center.justify-end div.flex.h-full flex-col.items-center:has(> h1.leading-\\[34px\\]):not(.MARCI__hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix prompt templates section overflow (2025-03-12)",
+        "Selector": "body:not(:has(.text-message)) main div[role=\"presentation\"] div.\\@container\\/thread.overflow-hidden.flex.flex-1.grow.basis-auto:has(form.w-full)",
+        "Add": [],
+        "Remove": [
+          "overflow-hidden"
+        ]
+      },
+      {
+        "Description": "Fix conversation page overflow (2025-03-12)",
+        "Selector": "body:has(.text-message) main div[role=\"presentation\"] div.\\@container\\/thread.flex.flex-1.grow.basis-auto:not(.overflow-hidden), body:has(button.group\\/snorlax-control-tile) main div[role=\"presentation\"] div.\\@container\\/thread.flex.flex-1.grow.basis-auto:not(.overflow-hidden)",
+        "Add": [
+          "overflow-hidden"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix positioning of announcement bar (2025-03-13)",
+        "Selector": "main div[role=\"presentation\"] div.my-auto.text-base.px-3.w-full.h-full > div.mx-auto.text-base > div.\\@lg\\/thread\\:w-full.\\@lg\\/thread\\:absolute.\\@lg\\/thread\\:bottom-8, main div[role=\"presentation\"] div.isolate div.md\\:absolute.\\md\\:bottom-6",
+        "Add": [
+          "md:max-w-3xl",
+          "m-auto"
+        ],
+        "Remove": [
+          "@lg/thread:absolute",
+          "md:absolute"
+        ]
+      },
+      {
+        "Description": "Move top navigation buttons to the left (conversation page)",
+        "Selector": "body:has(.text-message):has(#MARCI__sidebar-icon) main div[role=\"presentation\"] > div.draggable > div.flex.items-center.gap-2.pr-1.leading-\\[0\\]:not(.pr-14)",
+        "Add": [
+          "pr-14",
+          "mr-12"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix overflow on project page",
+        "Selector": "body:has(button.group\\/snorlax-control-tile) main.relative.h-full.w-full.flex-1.overflow-auto.transition-width",
+        "Add": [],
+        "Remove": [
+          "overflow-auto"
+        ]
+      },
+      {
+        "Description": "Fix templates visible on GPT conversation page",
+        "Selector": "main div[role=\"presentation\"] > .flex-1.overflow-hidden:has(.text-message) > #templates-wrapper:not(.MARCI__hidden)",
+        "Add": [
+          "MARCI__hidden"
+        ],
+        "Remove": [
+          "md:MARCI__flex"
+        ]
+      },
+      {
+        "Description": "Textarea prompt input - temporary chat (includeMyProfileInfoSelectWrapper)",
+        "Selector": "html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl.dark.bg-\\[\\#303030\\] #includeMyProfileInfoSelectWrapper label:not(.MARCI__text-white), html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\].dark.bg-\\[\\#303030\\] #includeMyProfileInfoSelectWrapper label:not(.MARCI__text-white)",
+        "Add": [
+          "MARCI__text-white"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Textarea prompt input - temporary chat disabled (includeMyProfileInfoSelectWrapper)",
+        "Selector": "html:not(.dark) .flex.w-full.flex-col.rounded-t-3xl:not(.dark.bg-\\[\\#303030\\]) #includeMyProfileInfoSelectWrapper label.MARCI__text-white, html:not(.dark) .flex.w-full.flex-col.rounded-\\[28px\\]:not(.dark.bg-\\[\\#303030\\]) #includeMyProfileInfoSelectWrapper label.MARCI__text-white",
+        "Add": [],
+        "Remove": [
+          "MARCI__text-white"
+        ]
+      },
+      {
+        "Description": "Prompt panel overflow (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"] > div.overflow-clip",
+        "Add": [],
+        "Remove": [
+          "overflow-clip"
+        ]
+      },
+      {
+        "Description": "Prompt panel bottom margin (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"] div#MARCI__PromptPanel:not(.MARCI__bottom-4)",
+        "Add": [
+          "MARCI__bottom-4"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix position of 'include my profile info' (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"]:has(#includeMyProfileInfo):not(:has(#includeMyProfileInfo.MARCI__hidden)) .flex.absolute.gap-2 > .ml-auto:has(#includeMyProfileInfo):not(.MARCI__flex)",
+        "Add": [
+          "MARCI__flex"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix position of 'include my profile info' (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"]:has(#includeMyProfile):not(:has(#includeMyProfile.MARCI__hidden)) #includeMyProfile.MARCI__pl-10",
+        "Add": [
+          "-ml-1",
+          "MARCI__-ml-1"
+        ],
+        "Remove": [
+          "MARCI__pl-10"
+        ]
+      },
+      {
+        "Description": "Fix position of 'include my profile info' - container (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"]:has(#includeMyProfileInfo):not(:has(#includeMyProfileInfo.MARCI__hidden)) div.bg-primary-surface-primary.absolute.bottom-\\[9px\\].left-\\[17px\\].right-0.z-\\[2\\].flex.items-center",
+        "Add": [
+          "MARCI__w-full"
+        ],
+        "Remove": [
+          "absolute"
+        ]
+      },
+      {
+        "Description": "Fix position of 'include my profile info' - container (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"]:has(#includeMyProfileInfo):not(:has(#includeMyProfileInfo.MARCI__hidden)) div.flex.items-end.pl-3.py-3.relative.w-full:not(.MARCI__flex-col)",
+        "Add": [
+          "MARCI__flex-col"
+        ],
+        "Remove": []
+      },
+      {
+        "Description": "Fix position of 'include my profile info' - submit button (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"]:has(#includeMyProfileInfo):not(:has(#includeMyProfileInfo.MARCI__hidden)) div.flex.items-center.left-\\[17px\\] div.absolute.bottom-1.right-3.flex.items-center.gap-2",
+        "Add": [],
+        "Remove": [
+          "absolute"
+        ]
+      },
+      {
+        "Description": "Fix position of 'include my profile info' - buttons (Vanguard)",
+        "Selector": "form[data-type=\"unified-composer\"]:has(#includeMyProfileInfo):not(:has(#includeMyProfileInfo.MARCI__hidden)) div.MARCI__flex-wrap.MARCI__gap-y-8:not(.MARCI__items-center)",
+        "Add": [
+          "MARCI__items-center",
+          "MARCI__flex",
+          "MARCI__justify-between",
+          "MARCI__w-full",
+          "MARCI__mr-3"
+        ]
+      }
+    ]
+  }
+}

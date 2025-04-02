@@ -1,0 +1,23 @@
+[
+  {
+      "Comment": "",
+      "CreationTime": "2025-03-28T13:47:45.866Z",
+      "ID": "2071198871023538176",
+      "Items": [
+          {
+              "Comment": "",
+              "CreationTime": "2025-03-28T13:47:51.24Z",
+              "ItemOrder": 0,
+              "ItemStatusNo": 100,
+              "ListID": "2071198871023538176",
+              "PromptID": "1784224785543462912",
+              "RevisionTime": "2025-03-28T13:47:51.24Z"
+          }
+      ],
+      "ListOrder": 0,
+      "ListStatusNo": 100,
+      "ListTypeNo": 4,
+      "OwnList": true,
+      "RevisionTime": "2025-03-28T13:47:45.866Z"
+  }
+]

@@ -1,0 +1,32 @@
+{
+    "AccountSubPrompts": [],
+    "FeatureBitset": 1,
+    "FullName": "NGUYỄN THANH TÙNG - ITC - AI \u0026 Big Data - Senior Software Engineer",
+    "IsLinked": true,
+    "MaxNewPrivatePromptsAllowed": 10,
+    "MaxNewPublicPromptsAllowed": 10,
+    "Quota": {
+        "MaxLevel": 200,
+        "MaxPrivateListItems": 100,
+        "MaxPromptPublicUpcoming": 1,
+        "MaxTeamListItems": 1000,
+        "QuotaPromptBlockingTime": 23421,
+        "QuotaPromptSendPerDayAIPRM": 1000,
+        "QuotaPromptSendPerDayAIPRMblocking": 1000,
+        "QuotaPromptSendPerDayNONAIPRM": 1000,
+        "QuotaPromptSendPerDayNONAIPRMblocking": 1000,
+        "TotalCustomContinue": 10,
+        "TotalCustomStyles": 10,
+        "TotalCustomTones": 10,
+        "TotalPrivateLists": 3,
+        "TotalPromptStorePrivate": 3,
+        "TotalPromptStoreTeam": 1000,
+        "TotalTeamLists": 1000,
+        "TotalTeams": 1000
+    },
+    "TeamS": [],
+    "UserERID": "US-RAzxoFipSWAdwCwgmsHQwj",
+    "UserEmail": "tung.nguyen14@mservice.com.vn",
+    "UserLevelNo": 64,
+    "UserStatusNo": 1
+}
