@@ -344,7 +344,7 @@ const MARCIClient = {
     }
 
     return this.fetchExtended(
-      `${this.APIEndpoint}/Prompts/${PromptID}?OperatorERID=${this.User.OperatorERID}&SystemNo=${this.User.SystemNo}${paramBasic}`
+      `${this.NewAPIEndpoint}/Prompts/${PromptID}?OperatorERID=${this.User.OperatorERID}&SystemNo=${this.User.SystemNo}${paramBasic}`
     ).then(this.handleResponse);
   },
 
@@ -486,7 +486,7 @@ const MARCIClient = {
   // delete prompt using MARCI API endpoint
   deletePrompt(PromptID) {
     return this.fetchExtended(
-      `${this.APIEndpoint}/Prompts/${PromptID}?OperatorERID=${this.User.OperatorERID}&SystemNo=${this.User.SystemNo}&UserFootprint=${this.User.UserFootprint}`,
+      `${this.NewAPIEndpoint}/Prompts/${PromptID}?OperatorERID=${this.User.OperatorERID}&SystemNo=${this.User.SystemNo}&UserFootprint=${this.User.UserFootprint}`,
       {
         method: 'DELETE',
         headers: {

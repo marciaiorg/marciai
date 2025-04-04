@@ -52,13 +52,9 @@ const showOnboarding = (lastPromptTemplateTypeKey, cacheBuster) => {
                             </div>
 
                             <div class="MARCI__bg-gray-200 dark:MARCI__bg-gray-850 MARCI__px-4 MARCI__py-3 MARCI__text-right">
-                            ${
-                              // MarciAI_change
-                              // <a href="${TutorialsURL}" target="_blank" rel="noopener noreferrer" title="View MARCI tutorials for more information"
-                              //       class="MARCI__bg-blue-600 hover:MARCI__bg-blue-700 MARCI__mr-2 MARCI__px-4 MARCI__py-2 MARCI__rounded MARCI__text-white">View tutorials
-                              //   </a>
-                              ''
-                            }
+                                <a href="${TutorialsURL}" target="_blank" rel="noopener noreferrer" title="View MARCI tutorials for more information"
+                                    class="MARCI__bg-blue-600 hover:MARCI__bg-blue-700 MARCI__mr-2 MARCI__px-4 MARCI__py-2 MARCI__rounded MARCI__text-white">View tutorials
+                                </a>
                                 
                                 <button id="MARCI__onboardingOkButton" type="button" title="Close this dialog and start using MARCI"
                                     class="MARCI__bg-green-600 hover:MARCI__bg-green-700 MARCI__mr-2 MARCI__px-4 MARCI__py-2 MARCI__rounded MARCI__text-white">Get started with MARCI
