@@ -1,6 +1,6 @@
 // Change the currentEnvironment variable to switch between environments (local, test, production)
 // Change this when deploy
-const currentEnvironment = 'local';
+const currentEnvironment = 'production'; // 'local' | 'test' | 'production'
 
 // Define environment-specific constants (API endpoints, etc.)
 const getEnvironmentConfig = () => {
