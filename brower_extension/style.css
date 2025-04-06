@@ -2172,9 +2172,10 @@ form.max-w-\[calc\(800px\+24px\)\]
   max-height: 60vh;
 }
 
-html[class*='dark'] #MARCI__logo {
-  filter: invert(1);
-}
+/* MarciAI_change: keep same logo on dark mode */
+/* html[class*='dark'] #MARCI__logo { */
+  /* filter: invert(1); */
+/* } */
 
 .ProseMirror p.placeholder:first-child:after {
   content: var(--placeholder-text, 'Message ChatGPT');

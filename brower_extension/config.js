@@ -1,15 +1,13 @@
 // Change the currentEnvironment variable to switch between environments (local, test, production)
 const currentEnvironment = 'production';
 
-const API_LOCALHOST = "http://127.0.0.1:8090"
-
 // Define environment-specific constants (API endpoints, etc.)
 const getEnvironmentConfig = () => {
   switch (currentEnvironment) {
     case 'production':
       return {
         APIEndpoint: 'https://api.aiprm.com/api9',
-        NewAPIEndpoint: API_LOCALHOST,
+        NewAPIEndpoint: "https://api.marciai.app",
         APIEndpointAPP: 'https://app.aiprm.com/api',
         AppAccountURL: 'https://app.aiprm.com/account',
         AppPricingURL: 'https://app.aiprm.com/pricing',
@@ -28,6 +26,7 @@ const getEnvironmentConfig = () => {
     case 'local':
       return {
         APIEndpoint: 'https://dev-api.aiprm.com/api4',
+        NewAPIEndpoint: "http://127.0.0.1:8090",
         APIEndpointAPP: 'https://dev-app.aiprm.com/api',
         AppAccountURL: 'https://dev-app.aiprm.com/account',
         AppPricingURL: 'https://dev-app.aiprm.com/pricing',
@@ -59,6 +58,8 @@ const AppPricingURL = environmentConfig.AppPricingURL;
 const AppSignupURL = environmentConfig.AppSignupURL;
 const AppTeamURL = environmentConfig.AppTeamURL;
 
+const RESOURCE_HOST = 'https://api.marciai.app';
+
 // Define global constants
 const PromptPlaceholder = '[PROMPT]';
 const PromptPlaceholder1 = '[PROMPT1]';
@@ -67,21 +68,21 @@ const CrawledTextPlaceholder = '[CRAWLEDTEXT]';
 const CrawledSourcePlaceholder = '[CRAWLEDSOURCE]';
 const VariablePlaceholder = '[VARIABLE{idx}]';
 const VariableDefinition = /\[VARIABLE([1-6]):(.+?)(:.*?)?(:.*?)?\]/g;
-const LanguageFeedURL = API_LOCALHOST + '/csv/languages-20230119.csv?v=';
-const TopicFeedURL = API_LOCALHOST + '/csv/topics-20230123.csv?v=';
-const ActivityFeedURL = API_LOCALHOST + '/csv/activities-20230124.csv?v=';
-const ToneFeedURL = API_LOCALHOST + '/csv/tones-v2-20230216.csv?v=';
+const LanguageFeedURL = RESOURCE_HOST + '/csv/languages-20230119.csv?v=';
+const TopicFeedURL = RESOURCE_HOST + '/csv/topics-20230123.csv?v=';
+const ActivityFeedURL = RESOURCE_HOST + '/csv/activities-20230124.csv?v=';
+const ToneFeedURL = RESOURCE_HOST + '/csv/tones-v2-20230216.csv?v=';
 const WritingStyleFeedURL =
-  API_LOCALHOST + '/csv/writing_styles-v2-20230216.csv?v=';
+  RESOURCE_HOST + '/csv/writing_styles-v2-20230216.csv?v=';
 const ContinueActionsFeedURL =
-  API_LOCALHOST + '/csv/continue_actions-20230216.csv?v=';
-const ModelFeedURL = API_LOCALHOST + '/csv/models-20240710.csv?v=';
+  RESOURCE_HOST + '/csv/continue_actions-20230216.csv?v=';
+const ModelFeedURL = RESOURCE_HOST + '/csv/models-20240710.csv?v=';
 const PromptBuilderFeedURL =
-  API_LOCALHOST + '/csv/prompt_builder-20230811.csv?v=';
+  RESOURCE_HOST + '/csv/prompt_builder-20230811.csv?v=';
 const AppShort = 'MARCI';
 const AppName = 'MARCI for ChatGPT';
 const AppSlogan = 'MARCI - ChatGPT Prompts';
-const AppSloganPremium = 'MARCI Premium - ChatGPT Prompts';
+const AppSloganPremium = 'MARCI - ChatGPT Prompts';
 const AppURL =
   'https://www.aiprm.com/?via=chatgpt&utm_campaign=powered&utm_source=chatgpt&utm_medium=navlink&utm_content=MARCIpowered';
 const ExportFilePrefix = 'MARCI-export-chatgpt-thread_';
@@ -90,10 +91,10 @@ const ExportHeaderPrefix =
 const AppCommunityForumURL =
   'https://forum.aiprm.com/categories?via=chatgpt&utm_campaign=community&utm_source=chatgpt&utm_medium=navlink&utm_content=MARCIcommunity';
 const QuotaMessagesURL =
-  API_LOCALHOST + '/json/quota-messages-20240619.json?v='
+  RESOURCE_HOST + '/json/quota-messages-20240619.json?v='
 
 // MarciAI_change
-const ConfigURL = API_LOCALHOST + '/json/config-20250127.json?v=';
+const ConfigURL = RESOURCE_HOST + '/json/config-20250127.json?v=';
 const AuxIndexLookupDefinition = /^\$\[(\w+::)?(\w+)(\(\d+\))?:([^\n]+)\]$/gm;
 const QuickStartOnboardingURL =
   'https://api.aiprm.com/img/quick-start-onboarding.png';

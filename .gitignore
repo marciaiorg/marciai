@@ -394,3 +394,5 @@ public/manifest.json
 /backend/tmp
 /backend/node_modules
 /backend/pb_data
+
+/logs
