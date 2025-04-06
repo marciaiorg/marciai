@@ -4149,7 +4149,7 @@ ${textContent}
               <p class="MARCI__max-w-md" style="overflow-wrap: anywhere;">${message}</p>
               ${
                 severity === NotificationSeverity.ERROR
-                  ? /*html*/ `<br/><p class="MARCI__max-w-md MARCI__font-semibold" style="overflow-wrap: anywhere;">If this issue persists, please check <a href="https://forum.aiprm.com/" target="_blank" class="MARCI__underline">forum.aiprm.com</a> and <a href="https://status.aiprm.com/" target="_blank" class="MARCI__underline">status.aiprm.com</a> for updates.</p>`
+                  ? /*html*/ `<br/><p class="MARCI__max-w-md MARCI__font-semibold" style="overflow-wrap: anywhere;">If this issue persists, please check <a href="https://github.com/marciaiorg/marciai/discussions" target="_blank" class="MARCI__underline">https://github.com/marciaiorg/marciai</a> and <a href="https://github.com/marciaiorg/marciai/issues" target="_blank" class="MARCI__underline">https://github.com/marciaiorg/marciai/issues</a> for updates.</p>`
                   : ''
               }
             </div>
@@ -4777,8 +4777,7 @@ ${textContent}
     forum.href = AppCommunityForumURL;
     forum.target = '_blank';
 
-    // MarciAI_change
-    // nav.insertBefore(forum, colorModeButton);
+    nav.insertBefore(forum, colorModeButton);
   },
 
   // This function gets the "New Chat" buttons

@@ -132,7 +132,8 @@ const MARCIClient = {
       options.headers = {};
     }
 
-    options.headers['X-AIPRM-Version'] = VERSION;
+    // MarciAI_change: dont need to send version to MARCI API
+    // options.headers['X-MARCI-Version'] = VERSION;
 
     return fetch(url, options);
   },

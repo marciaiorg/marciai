@@ -1,46 +1,23 @@
 // Change the currentEnvironment variable to switch between environments (local, test, production)
-const currentEnvironment = 'production';
+// Change this when deploy
+const currentEnvironment = 'local';
 
 // Define environment-specific constants (API endpoints, etc.)
 const getEnvironmentConfig = () => {
   switch (currentEnvironment) {
     case 'production':
       return {
-        APIEndpoint: 'https://api.aiprm.com/api9',
+        APIEndpoint: 'https://api.marciai.app',
         NewAPIEndpoint: "https://api.marciai.app",
-        APIEndpointAPP: 'https://app.aiprm.com/api',
-        AppAccountURL: 'https://app.aiprm.com/account',
-        AppPricingURL: 'https://app.aiprm.com/pricing',
-        AppSignupURL: 'https://app.aiprm.com/signup',
+        APIEndpointAPP: 'https://app.marciai.app/api',
+        AppAccountURL: 'https://app.marciai.app/account',
+        AppPricingURL: 'https://app.marciai.app/pricing',
+        AppSignupURL: 'https://app.marciai.app/signup',
         AppTeamURL: 'https://app.aiprm.com/teams',
-      };
-    case 'test':
-      return {
-        APIEndpoint: 'https://test-api.aiprm.com/api9',
-        APIEndpointAPP: 'https://test-app.aiprm.com/api',
-        AppAccountURL: 'https://test-app.aiprm.com/account',
-        AppPricingURL: 'https://test-app.aiprm.com/pricing',
-        AppSignupURL: 'https://test-app.aiprm.com/signup',
-        AppTeamURL: 'https://test-app.aiprm.com/teams',
       };
     case 'local':
       return {
-        APIEndpoint: 'https://dev-api.aiprm.com/api4',
         NewAPIEndpoint: "http://127.0.0.1:8090",
-        APIEndpointAPP: 'https://dev-app.aiprm.com/api',
-        AppAccountURL: 'https://dev-app.aiprm.com/account',
-        AppPricingURL: 'https://dev-app.aiprm.com/pricing',
-        AppSignupURL: 'https://dev-app.aiprm.com/signup',
-        AppTeamURL: 'https://dev-app.aiprm.com/teams',
-      };
-    default:
-      return {
-        APIEndpoint: 'https://api.aiprm.com/api7',
-        APIEndpointAPP: 'https://app.aiprm.com/api',
-        AppAccountURL: 'https://app.aiprm.com/account',
-        AppPricingURL: 'https://app.aiprm.com/pricing',
-        AppSignupURL: 'https://app.aiprm.com/signup',
-        AppTeamURL: 'https://app.aiprm.com/teams',
       };
   }
 };
@@ -83,13 +60,11 @@ const AppShort = 'MARCI';
 const AppName = 'MARCI for ChatGPT';
 const AppSlogan = 'MARCI - ChatGPT Prompts';
 const AppSloganPremium = 'MARCI - ChatGPT Prompts';
-const AppURL =
-  'https://www.aiprm.com/?via=chatgpt&utm_campaign=powered&utm_source=chatgpt&utm_medium=navlink&utm_content=MARCIpowered';
+const AppURL = 'https://github.com/marciaiorg/marciai';
 const ExportFilePrefix = 'MARCI-export-chatgpt-thread_';
 const ExportHeaderPrefix =
-  '\n```\nExported with MARCI https://www.aiprm.com by ';
-const AppCommunityForumURL =
-  'https://forum.aiprm.com/categories?via=chatgpt&utm_campaign=community&utm_source=chatgpt&utm_medium=navlink&utm_content=MARCIcommunity';
+  '\n```\nExported with MARCI https://github.com/marciaiorg/marciai by ';
+const AppCommunityForumURL = 'https://github.com/marciaiorg/marciai/discussions';
 const QuotaMessagesURL =
   RESOURCE_HOST + '/json/quota-messages-20240619.json?v='
 

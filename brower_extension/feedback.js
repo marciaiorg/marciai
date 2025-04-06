@@ -165,13 +165,13 @@ const getFeedbackFormTemplate = (selectedFeedbackTypeNo, promptID) => {
           and the output generated.
 
           <br><br>
-          You can also report your question on <a style="text-decoration:underline" target="_blank" href="https://forum.aiprm.com/c/prompt-user-questions/6">our user forum</a> and others will try to help you there, often faster.
+          You can also report your question on <a style="text-decoration:underline" target="_blank" href="https://github.com/marciaiorg/marciai/discussions">our user forum</a> and others will try to help you there, often faster.
           <br>
         `
           : `But we will take your report about the prompt and evaluate it.
           
           <br><br>
-          You can also report your question on <a style="text-decoration:underline" target="_blank" href="https://forum.aiprm.com/c/prompt-user-questions/6">our user forum</a> and others will try to help you there, often faster.
+          You can also report your question on <a style="text-decoration:underline" target="_blank" href="https://github.com/marciaiorg/marciai/discussions">our user forum</a> and others will try to help you there, often faster.
           <br>
 
           

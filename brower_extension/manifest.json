@@ -25,7 +25,7 @@
   "default_locale": "en",
   "description": "MARCI is your cheat code for ChatGPT. Adds a list of curated prompt templates and advanced features. Try today.",
   "externally_connectable": {
-    "matches": ["https://*.aiprm.com:*/*"]
+    "matches": ["https://*.marciai.app:*/*"]
   },
   "host_permissions": ["https://chat.openai.com/*"],
   "icons": {
@@ -43,7 +43,7 @@
   "manifest_version": 3,
   "name": "MARCI for ChatGPT",
   "omnibox": {
-    "keyword": "aiprm"
+    "keyword": "marciai"
   },
   "optional_host_permissions": ["https://chatgpt.com/*"],
   "permissions": [

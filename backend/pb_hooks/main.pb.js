@@ -31,13 +31,17 @@ routerAdd("GET", "/Prompts/{promptID}", (e) => {
     });
   }
 
-  if (prompt.getString("CreatedBy") != userId) {
-    return e.json(400, {
-      error: "Bad request",
-    });
+  // Only allow get public prompt or own prompt
+  if (
+    prompt.getInt("PromptTypeNo") == 2 ||
+    prompt.getString("CreatedBy") === userId
+  ) {
+    return e.json(200, helpers.toClientPrompt(prompt.publicExport()));
   }
 
-  return e.json(200, helpers.toClientPrompt(prompt.publicExport()));
+  return e.json(400, {
+    error: "Bad request",
+  });
 });
 
 // Delete a prompt
@@ -155,6 +159,12 @@ routerAdd("POST", "/Prompts/{promptID}", (e) => {
   if (!record) {
     return e.json(400, {
       error: "Prompt not found",
+    });
+  }
+
+  if (record.getString("CreatedBy") != userId) {
+    return e.json(400, {
+      error: "Bad request",
     });
   }
 
