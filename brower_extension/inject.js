@@ -174,14 +174,14 @@ const DefaultPromptTopic = 'all';
 const DefaultTargetLanguage = 'English*';
 const DefaultPromptModel = 'all';
 
-const lastPromptTopicKey = 'lastPromptTopic';
-const lastPromptModelKey = 'lastPromptModel';
-const lastTargetLanguageKey = 'lastTargetLanguage';
-const lastPageSizeKey = 'lastPageSize';
-const lastGizmoPageSizeKey = 'lastGizmoPageSize';
-const lastPromptTemplateTypeKey = 'lastPromptTemplateType';
-const lastListIDKey = 'lastListID';
-const lastCreatePromptModeKey = 'lastCreatePromptMode';
+const lastPromptTopicKey = 'MARCI_lastPromptTopic';
+const lastPromptModelKey = 'MARCI_lastPromptModel';
+const lastTargetLanguageKey = 'MARCI_lastTargetLanguage';
+const lastPageSizeKey = 'MARCI_lastPageSize';
+const lastGizmoPageSizeKey = 'MARCI_lastGizmoPageSize';
+const lastPromptTemplateTypeKey = 'MARCI_lastPromptTemplateType';
+const lastListIDKey = 'MARCI_lastListID';
+const lastCreatePromptModeKey = 'MARCI_lastCreatePromptMode';
 
 const myProfileMessageKey = 'myProfileMessageMARCI';
 const hideWatermarkKey = 'MARCI_hideWatermark';

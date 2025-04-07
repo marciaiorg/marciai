@@ -1104,6 +1104,9 @@ export class UserQuota {
 
   // Check if user can use "Hide Watermark" (requires certain plan level)
   canUseHideWatermark(showModal = true) {
+    // MarciAI_change: hide watermark feature is available for all users
+    return true;
+
     // Plan level must be at least "ELITE"
     if (this.#quota.MaxLevel >= PlanLevelNo.ELITE) {
       return true;
