@@ -23,11 +23,11 @@
     ]
   },
   "default_locale": "en",
-  "description": "MARCI is your cheat code for ChatGPT. Adds a list of curated prompt templates and advanced features. Try today.",
+  "description": "MarciAI is a prompt management tool and community-driven prompt library. Use it to complete marketing, sales, operation, productivity, and customer support tasks in minutes that used to take hours with ready-to-use prompts for ChatGPT",
   "externally_connectable": {
     "matches": ["https://*.marciai.app:*/*"]
   },
-  "host_permissions": ["https://chat.openai.com/*"],
+  "host_permissions": ["https://chatgpt.com/*"],
   "icons": {
     "1024": "icons/Icon1024.png",
     "128": "icons/Icon128.png",
