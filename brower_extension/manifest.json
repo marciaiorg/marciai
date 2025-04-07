@@ -43,7 +43,7 @@
   "manifest_version": 3,
   "name": "MARCI for ChatGPT",
   "omnibox": {
-    "keyword": "marciai"
+    "keyword": "marci"
   },
   "optional_host_permissions": ["https://chatgpt.com/*"],
   "permissions": [
