@@ -230,10 +230,6 @@ const getUserOpenAI = function () {
   return user;
 };
 
-const isMarciAITurnOn = function () {
-  localStorage.getItem("Marci") || '[]'
-}
-
 // register content script for ChatGPT.com, if not already registered - otherwise update it
 const registerChatGPTComContentScript = function () {
   const scriptID = 'ChatGPTComContentScript';
