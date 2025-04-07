@@ -23,7 +23,7 @@
     ]
   },
   "default_locale": "en",
-  "description": "MarciAI is a prompt management tool and community-driven prompt library. Use it to complete marketing, sales, operation, productivity, and customer support tasks in minutes that used to take hours with ready-to-use prompts for ChatGPT",
+  "description": "MarciAI: Community prompt manager & library for ChatGPT. Accelerate marketing, sales & productivity tasks with ready prompts",
   "externally_connectable": {
     "matches": ["https://*.marciai.app:*/*"]
   },
@@ -45,7 +45,6 @@
   "omnibox": {
     "keyword": "marci"
   },
-  "optional_host_permissions": ["https://chatgpt.com/*"],
   "permissions": [
     "activeTab",
     "contextMenus",
@@ -54,10 +53,10 @@
     "webRequest"
   ],
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "1..0.0",
+  "version": "1.0.0",
   "web_accessible_resources": [
     {
-      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"],
+      "matches": ["https://chatgpt.com/*"],
       "resources": [
         "config.js",
         "inject.js",

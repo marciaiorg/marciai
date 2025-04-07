@@ -182,6 +182,7 @@ const lastGizmoPageSizeKey = 'MARCI_lastGizmoPageSize';
 const lastPromptTemplateTypeKey = 'MARCI_lastPromptTemplateType';
 const lastListIDKey = 'MARCI_lastListID';
 const lastCreatePromptModeKey = 'MARCI_lastCreatePromptMode';
+const isMarciAITurnOnKey = 'MARCI_isMarciAITurnOn';
 
 const myProfileMessageKey = 'myProfileMessageMARCI';
 const hideWatermarkKey = 'MARCI_hideWatermark';
@@ -564,6 +565,17 @@ window.MARCI = {
   },
 
   async init() {
+    if (localStorage.getItem(isMarciAITurnOnKey, "true") != "true") {
+      await Promise.all([
+        this.fetchConfig(),
+      ]);
+      this.setupSidebar();
+
+      // MARCI AI is turned off
+      console.log('MARCI AI is turned off');
+      return;
+    }
+
     console.log('MARCI init');
 
     // check version before initializing
@@ -3347,7 +3359,8 @@ ${textContent}
     sidebarIcon.title = 'Open MARCI sidebar';
 
     sidebarIcon.innerHTML =
-      /*html*/ '<div class="MARCI__invert dark:MARCI__filter-none MARCI__sidebar-icon MARCI__w-12 MARCI__h-12"></div>';
+      // MarciAI_change: no inverted colors for icon
+      /*html*/ '<div class="dark:MARCI__filter-none MARCI__sidebar-icon MARCI__w-12 MARCI__h-12"></div>';
 
     // Add click event listener to open/close sidebar
     sidebarIcon.addEventListener('click', () => {
@@ -3377,7 +3390,7 @@ ${textContent}
     sidebar.innerHTML = /*html*/ `
           <div class="MARCI__relative" title="Close MARCI sidebar" id="MARCI__sidebar-container">
             <div class="MARCI__p-2 MARCI__items-center MARCI__transition-colors MARCI__duration-200 MARCI__cursor-pointer MARCI__text-sm MARCI__rounded-md MARCI__border MARCI__bg-white dark:MARCI__bg-gray-900 MARCI__border-black/10 dark:MARCI__border-white/20 hover:MARCI__bg-gray-50 dark:hover:MARCI__bg-gray-850 MARCI__absolute MARCI__top-0 MARCI__left-4 MARCI__z-30" onclick="document.getElementById('MARCI__sidebar-icon').click()">
-              <div class="MARCI__invert dark:MARCI__filter-none MARCI__sidebar-icon MARCI__w-12 MARCI__h-12"></div>
+              <div class="dark:MARCI__filter-none MARCI__sidebar-icon MARCI__w-12 MARCI__h-12"></div>
             </div>
 
             <h1 style="display: none;" class="text-4xl"></h1>
@@ -4646,6 +4659,20 @@ ${textContent}
 
   /**
    *
+   * Toggle between the "turn on" or "turn ogg" marciai
+   *
+   * @param {Event} event
+   */
+  toggleTurnOnMarci(event) {
+    const isTurnOn = event.target.checked;
+    console.log(isTurnOn);
+    console.log(event.target.checked)
+    localStorage.setItem(isMarciAITurnOnKey, isTurnOn);
+    location.reload();
+  },
+
+  /**
+   *
    * Toggle between the "Basic" and "Advanced" mode
    * and the "Prompt Builder" and "Save Prompt Form"
    *
@@ -4727,8 +4754,9 @@ ${textContent}
 
     // Get the nav element in the sidebar
     const nav = document.querySelector(selectorConfig.ExportButton);
-    // If there is no nav element or the "Export Button" already exists, skip
-    if (!nav || nav.querySelector('#export-button')) return;
+    // MarciAI_change
+    // If there is no nav element or the "TurnOnMarciAI" already exists, skip
+    if (!nav || nav.querySelector('#turnOnMarciAI')) return;
 
     // Create the "Export Button" element
     const button = document.createElement('a');
@@ -4747,10 +4775,12 @@ ${textContent}
       child.innerText.includes('Log out')
     );
     // Insert the "Export Button" before the "Color Mode" button
-    nav.insertBefore(button, colorModeButton);
+    // MarciAI_change: temporarily hide the "Export" button
+    // nav.insertBefore(button, colorModeButton);
 
     // Create and insert the "Referral Button" element
-    this.Referrals.addSidebarButton(button);
+    // MarciAI_change: temporarily hide the "Referral" button
+    // this.Referrals.addSidebarButton(button);
 
     // Create the "Version" element
     const version = document.createElement('a');
@@ -4778,6 +4808,20 @@ ${textContent}
     forum.target = '_blank';
 
     nav.insertBefore(forum, colorModeButton);
+
+    const isMarciAITurnOn = localStorage.getItem(isMarciAITurnOnKey, "true") == "true";
+
+    // MarciAI_change: add new "Off Marci" element
+    // Create the "Off Marci" element
+    const offMarci = document.createElement('div');
+    offMarci.className = css('VersionInfo');
+    offMarci.onclick = this.toggleTurnOnMarci.bind(this);
+    offMarci.innerHTML = `
+      <input type="checkbox" id="turnOnMarciAI" ${isMarciAITurnOn ? "checked" : ""} />
+      <label for="turnOnMarciAI">${ isMarciAITurnOn ? "Turn off MarciAI" : "Turn on MarciAI" }</label>
+    `;
+
+    nav.insertBefore(offMarci, colorModeButton);
   },
 
   // This function gets the "New Chat" buttons
